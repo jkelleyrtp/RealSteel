@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>About on PoE FA19 Real Steel</title>
-    <link>jonathan-kelley.com/FA19_POE_Final/about/</link>
+    <link>http://jonathan-kelley.com/FA19_POE_Final/about/</link>
     <description>Recent content in About on PoE FA19 Real Steel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="jonathan-kelley.com/FA19_POE_Final/about/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://jonathan-kelley.com/FA19_POE_Final/about/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
