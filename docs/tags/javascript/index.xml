@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on PoE FA19 Real Steel</title>
-    <link>jkelleyrtp.github.io/FA19_POE_Final/tags/javascript/</link>
+    <link>jonathan-kelley.com/FA19_POE_Final/tags/javascript/</link>
     <description>Recent content in Javascript on PoE FA19 Real Steel</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 08 Mar 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="jkelleyrtp.github.io/FA19_POE_Final/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="jonathan-kelley.com/FA19_POE_Final/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Math Typesetting</title>
-      <link>jkelleyrtp.github.io/FA19_POE_Final/post/math-typesetting/</link>
+      <link>jonathan-kelley.com/FA19_POE_Final/post/math-typesetting/</link>
       <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>jkelleyrtp.github.io/FA19_POE_Final/post/math-typesetting/</guid>
+      <guid>jonathan-kelley.com/FA19_POE_Final/post/math-typesetting/</guid>
       <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Lines from center</title>
-      <link>jkelleyrtp.github.io/FA19_POE_Final/post/lines-from-center/</link>
+      <link>jonathan-kelley.com/FA19_POE_Final/post/lines-from-center/</link>
       <pubDate>Mon, 04 Mar 2019 22:15:42 -0300</pubDate>
       
-      <guid>jkelleyrtp.github.io/FA19_POE_Final/post/lines-from-center/</guid>
+      <guid>jonathan-kelley.com/FA19_POE_Final/post/lines-from-center/</guid>
       <description>   var sketch = document.getElementById(&#39;sketch&#39;) function setup() { var canvas = createCanvas(windowWidth, windowHeight) canvas.parent(&#39;#sketch&#39;) } function draw() { line(width/2, height/2, mouseX, mouseY) } function windowResized() { resizeCanvas(windowWidth, windowHeight); }  </description>
     </item>
     
