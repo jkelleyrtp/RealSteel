@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on PoE FA19 Real Steel</title>
+    <link>https://example.com/tags/</link>
+    <description>Recent content in Tags on PoE FA19 Real Steel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Css3</title>
+      <link>https://example.com/tags/css3/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/tags/css3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>https://example.com/tags/go/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Html5</title>
+      <link>https://example.com/tags/html5/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/tags/html5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://example.com/tags/javascript/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jquery</title>
+      <link>https://example.com/tags/jquery/</link>
+      <pubDate>Mon, 04 Mar 2019 22:15:42 -0300</pubDate>
+      
+      <guid>https://example.com/tags/jquery/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
