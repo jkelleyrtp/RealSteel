@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "https://example.com/"
+baseurl = "http://jonathan-kelley.com/FA19_POE_Final/"
 languageCode = "en-us"
 title = "PoE FA19 Real Steel"
 theme = "spectre-pixel"
