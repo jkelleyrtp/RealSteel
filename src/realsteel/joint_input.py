@@ -33,8 +33,9 @@ class HYBRID(JOINT_INPUT):
         return p
 
     def main_loop(self, queue: Queue):
-        i = 0
+        i = [0, 0]
         while True:
             time.sleep(.00025)
-            i += .01
+            i[0] += .01
+            i[1] += .01
             queue.put(i)

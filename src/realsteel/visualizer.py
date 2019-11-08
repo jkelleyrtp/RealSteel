@@ -37,7 +37,7 @@ class ROBOT_VIS(VISUALIZER):
         for name in self.sim.getJoints():
             self.controls[name] = p.addUserDebugParameter(name, 0, 4 * math.pi, 0)
 
-    def next_frame(self, shoulder_angles: (float, float)):
+    def next_frame(self, shoulder_angles: [float, float]):
         targets = {}
         for name in self.controls.keys():
             targets[name] = p.readUserDebugParameter(self.controls[name]) % (2 * math.pi) - math.pi
