@@ -65,15 +65,22 @@ class ROBOT:
         self.main_loop()
 
     def main_loop(self):
+        # Set up a shared queue to put human angles into
         input_queue = Queue()
+
+        # Get the process for the input method and start it
         input_proc = self.joint_input.launch(input_queue)
         input_proc.start()
 
-        pos = 0
+        # Set the initial left and right arm angles
+        pos = (0, 0) # left, right
+
         while True:
+            # Check if there's a new human angle input ready
             if not input_queue.empty():
                 pos = input_queue.get()
 
+            # Pump out the angles to the visualizer
             self.visualizer.next_frame(pos)
 
 
