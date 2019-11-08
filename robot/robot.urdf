@@ -24,9 +24,9 @@
 </material>
 </collision>
 <inertial>
-<origin xyz="0 0 0" rpy="0 0 0"/>
-<mass value="0"/>
-<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+<origin xyz="5.51967e-18 -1.18625e-17 0.117316" rpy="0 0 0"/>
+<mass value="29.6172"/>
+<inertia ixx="0.383869" ixy="0"  ixz="0" iyy="0.433746" iyz="0" izz="0.187931" />
 </inertial>
 </link>
 <joint name="torso_1_torso_1_0_torso_fixing" type="fixed">
@@ -147,7 +147,7 @@
 <axis xyz="0 0 0"/>
 </joint>
 
-<joint name="distal" type="revolute">
+<joint name="distal_right" type="revolute">
 <origin xyz="-0.193394 -0.0097 0.166524" rpy="2.01609e-16 0.811584 -3.32655e-15" />
 <parent link="part_6_1" />
 <child link="part_7_1" />
@@ -156,7 +156,7 @@
 <joint_properties friction="0.0"/>
 </joint>
 
-<joint name="proximal" type="revolute">
+<joint name="proximal_right" type="revolute">
 <origin xyz="0.0141421 -4.16334e-17 0.0424264" rpy="-0.705905 -0.269757 -0.705905" />
 <parent link="part_5_1" />
 <child link="part_6_1" />
@@ -165,11 +165,149 @@
 <joint_properties friction="0.0"/>
 </joint>
 
-<joint name="shoulder" type="revolute">
+<joint name="shoulder_right" type="revolute">
 <origin xyz="-0.13182 -2.77556e-17 0.303536" rpy="-0.706606 0.270333 0.706606" />
 <parent link="torso_1" />
 <child link="part_5_1" />
 <axis xyz="0.707107 0 -0.707107"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="part_2_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="part_2_1_0_part_2">
+<visual>
+<geometry>
+<mesh filename="package://part_2.stl"/>
+</geometry>
+<material name="part_2_1_0_part_2_material">
+<color rgba="0.647059 0.647059 0.647059 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://part_2.stl"/>
+</geometry>
+<material name="part_2_1_0_part_2_material">
+<color rgba="0.647059 0.647059 0.647059 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<mass value="0"/>
+<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<joint name="part_2_1_part_2_1_0_part_2_fixing" type="fixed">
+<origin xyz="-0.13182 5.55112e-17 -0.303536" rpy="-5.55112e-17 -0 0" />
+<parent link="part_2_1" />
+<child link="part_2_1_0_part_2" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="part_3_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="part_3_1_0_part_3">
+<visual>
+<geometry>
+<mesh filename="package://part_3.stl"/>
+</geometry>
+<material name="part_3_1_0_part_3_material">
+<color rgba="0.231373 0.380392 0.705882 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://part_3.stl"/>
+</geometry>
+<material name="part_3_1_0_part_3_material">
+<color rgba="0.231373 0.380392 0.705882 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<mass value="0"/>
+<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<joint name="part_3_1_part_3_1_0_part_3_fixing" type="fixed">
+<origin xyz="-0.119445 -1.38778e-17 -0.344194" rpy="-5.55112e-17 -0 0" />
+<parent link="part_3_1" />
+<child link="part_3_1_0_part_3" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="part_4_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="part_4_1_0_part_4">
+<visual>
+<geometry>
+<mesh filename="package://part_4.stl"/>
+</geometry>
+<material name="part_4_1_0_part_4_material">
+<color rgba="0.917647 0.917647 0.917647 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://part_4.stl"/>
+</geometry>
+<material name="part_4_1_0_part_4_material">
+<color rgba="0.917647 0.917647 0.917647 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<mass value="0"/>
+<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<joint name="part_4_1_part_4_1_0_part_4_fixing" type="fixed">
+<origin xyz="-0.312839 0.0075 -0.510718" rpy="0 -0 5.55112e-17" />
+<parent link="part_4_1" />
+<child link="part_4_1_0_part_4" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="distal_left" type="revolute">
+<origin xyz="0.193394 -0.0097 0.166524" rpy="1.66533e-16 -7.21645e-16 3.88578e-16" />
+<parent link="part_3_1" />
+<child link="part_4_1" />
+<axis xyz="0 -1 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="proximal_left" type="revolute">
+<origin xyz="-0.0141421 0 0.0424264" rpy="-7.77156e-16 7.77156e-16 5.55112e-17" />
+<parent link="part_2_1" />
+<child link="part_3_1" />
+<axis xyz="-0.707107 0 0.707107"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="shoulder_left" type="revolute">
+<origin xyz="0.13182 -2.77556e-17 0.303536" rpy="-0.752186 -0.309384 -0.752186" />
+<parent link="torso_1" />
+<child link="part_2_1" />
+<axis xyz="0.707107 0 0.707107"/>
 <limit effort="1.5" velocity="22" />
 <joint_properties friction="0.0"/>
 </joint>

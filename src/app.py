@@ -52,6 +52,6 @@ parser.add_argument('--urdf', dest='accumulate', action='store_const',
 
 if __name__ == "__main__":
     # Currently just bypasses into dev-software 
-    robot.ROBOT().start()
+    robot.ROBOT(visualization_mode="dev").start()
 
     pass

@@ -1,5 +1,6 @@
 # This module is essentially the guts of the robot primary logic
 from multiprocessing import Pool, Process, Queue
+import time
 from enum import Enum
 
 from realsteel.device import ROBOT_DEVICE, FAKE_DEVICE
@@ -8,7 +9,7 @@ from realsteel.joint_input import CAMERA, KINECT, HYBRID
 from realsteel.kinematic import KSOLVER
 from realsteel.pathplanner import PATHPLANNER
 
-vis_mode = Enum('demo','dev','disabled')
+# vis_mode = Enum('demo','dev','disabled')
 
 class ROBOT:
     """
@@ -16,7 +17,7 @@ class ROBOT:
     Nothing in this main loop should blocking, but rather pushing data around between threads. Everything should be async.
 
     """
-    def __init__(self, hardware_enabled = False, visualization_mode = vis_mode.disabled ):
+    def __init__(self, hardware_enabled = False, visualization_mode="disabled"):
         # [1] Build the virtual robot from joints
         # [2] Set up the camera/kinect inputs to dump raw joint angles
         # [3] Set up the kinematic solver that takes raw joint angles and turns into robot angles
@@ -26,13 +27,13 @@ class ROBOT:
 
         # Process the user flags to process things like dev mode
         self.hardware_enabled: bool = hardware_enabled
-        self.visualization_mode: vis_mode = visualization_mode
+        self.visualization_mode = visualization_mode
 
         # [1] Build the robot from a URDF file
         # TODO, allow specifying a custon URDF
-        self.raw_positions: dict = None
-        self.joint_positions: dict = None
-        self.intialize_robot_from_urdf(file = "")
+        self.human_positions: dict = None
+        self.robot_positions: dict = None
+        # self.intialize_robot_from_urdf(file = "")
 
         # [2] Set up the camera/kinect input device
         self.joint_input = HYBRID()
@@ -50,19 +51,31 @@ class ROBOT:
             self.device = FAKE_DEVICE()
 
         # [6] Set up the visualizer
-        # Spawn a thread that sets up the visualizer
-        if self.visualization_mode == vis_mode.demo:
+        if self.visualization_mode == "dev":
+            self.visualizer = ROBOT_VIS(directory='robot/')
+
+        elif self.visualization_mode == "demo":
             self.visualizer = DEMO_VIS()
 
-        if self.visualization_mode == vis_mode.dev:
-            self.visualizer = ROBOT_VIS()
-
-        if self.visualization_mode == vis_mode.disabled:
+        else:
             self.visualizer = FAKE_VIS()
 
+
+    def start(self):
+        self.main_loop()
+
     def main_loop(self):
-        # Start the visualizer
-        vis_proc = self.visualizer
+        input_queue = Queue()
+        input_proc = self.joint_input.launch(input_queue)
+        input_proc.start()
+
+        pos = 0
+        while True:
+            if not input_queue.empty():
+                pos = input_queue.get()
+
+            self.visualizer.next_frame(pos)
+
 
 
 
