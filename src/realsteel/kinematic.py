@@ -32,22 +32,6 @@ class KSOLVER:
             )
         ])
 
-<<<<<<< HEAD
-    def solve(self, human_anlges):
-        pass
-
-
-
-
-class ArmJoints():
-    def __init__(self, shoulder, proximal, distal):
-        self.shoulder = shoulder
-        self.proximal = proximal
-        self.distal = distal
-
-    def serialize(self):
-        return bytes('#{},{}!'.format(self.shoulder, self.proximal), encoding="ascii")
-=======
     def solve(self, wrist_postion):
         """Performs inverse kinematics and returns joint angles in rads
         
@@ -69,4 +53,13 @@ class ArmJoints():
         joints = self.chain.inverse_kinematics(target_frame)[1:3]
 
         return np.array([0, joints[1]])
->>>>>>> refs/remotes/origin/master
+
+
+class ArmJoints():
+    def __init__(self, shoulder, proximal, distal):
+        self.shoulder = shoulder
+        self.proximal = proximal
+        self.distal = distal
+
+    def serialize(self):
+        return bytes('#{},{}!'.format(self.shoulder, self.proximal), encoding="ascii")

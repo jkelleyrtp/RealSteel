@@ -27,6 +27,8 @@ class ROBOT_DEVICE(DEVICE):
             target = queue.get()
             self.ser.write(target.serialize())
 
+
+
 class FAKE_DEVICE(DEVICE):
     # Builds a fake device instead of a real device to mimic and verify commands
 

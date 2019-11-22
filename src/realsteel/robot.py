@@ -8,6 +8,8 @@ from realsteel.visualizer import DEMO_VIS, ROBOT_VIS, FAKE_VIS
 from realsteel.joint_input import CAMERA, KINECT, HYBRID
 from realsteel.kinematic import KSOLVER
 from realsteel.pathplanner import PATHPLANNER
+from realsteel.kinematic import ArmJoints
+
 
 # vis_mode = Enum('demo','dev','disabled')
 
@@ -68,13 +70,17 @@ class ROBOT:
         # Set up a shared queue to put human angles into
         input_queue = Queue()
 
-        input_queue.push()
-
-        a = input_queue.get_nowait()
 
         # Get the process for the input method and start it
         input_proc = self.joint_input.launch(input_queue)
         input_proc.start()
+
+        # Set up the device queue to push data into
+        device_queue = Queue()
+        device_proq = self.device.launch(device_queue)
+        device_proq.start()
+
+
 
         # Set the initial
         joints = {}
@@ -82,10 +88,11 @@ class ROBOT:
 
         while True:
             # Check if there's a new human joint inputs ready
-            if not input_queue.empty():
-                joints = input_queue.get()
-                if joints['Lwri']:
-                    joint_angles = self.solver.solve(joints['Lwri']['pc'])
+            # if not input_queue.empty():
+            joints = input_queue.get()
+            if joints['Lwri']:
+                joint_angles = self.solver.solve(joints['Lwri']['pc'])
 
-            # Pump out the angles to the visualizer
-            self.visualizer.next_frame(pos)
+                joint = ArmJoints(joint_angles[0], joint_angles[1], 0.0)
+
+                device_queue.push(joint)

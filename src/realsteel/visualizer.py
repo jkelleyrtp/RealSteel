@@ -42,13 +42,8 @@ class ROBOT_VIS(VISUALIZER):
         for name in self.controls.keys():
             targets[name] = p.readUserDebugParameter(self.controls[name])
         
-<<<<<<< HEAD
         # targets["shoulder_right"] = shoulder_angles[0] 
         # targets["shoulder_left"] = shoulder_angles[1] 
-=======
-        targets["shoulder_left"] = angles[0] 
-        targets["proximal_left"] = angles[1] 
->>>>>>> refs/remotes/origin/master
 
         self.sim.setJoints(targets)
 
