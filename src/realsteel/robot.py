@@ -72,16 +72,19 @@ class ROBOT:
         input_proc = self.joint_input.launch(input_queue)
         input_proc.start()
 
-        # Set the initial left and right arm angles
-        pos = (0, 0) # left, right
+        # Set the initial
+        joints = {}
+        joint_angles = [1, 1]
 
         while True:
-            # Check if there's a new human angle input ready
+            # Check if there's a new human joint inputs ready
             if not input_queue.empty():
-                pos = input_queue.get()
+                joints = input_queue.get()
+                if joints['Lwri']:
+                    joint_angles = self.solver.solve(joints['Lwri']['pc'])
 
             # Pump out the angles to the visualizer
-            self.visualizer.next_frame(pos)
+            self.visualizer.next_frame(joint_angles)
 
 
 
