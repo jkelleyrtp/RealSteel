@@ -4,7 +4,6 @@ import pybullet as p
 from realsteel.simulation import Simulation
 from multiprocessing import Process, Queue
 
-
 class VISUALIZER:
     def __init__(self, *args, **kwargs):
         pass
@@ -35,15 +34,15 @@ class ROBOT_VIS(VISUALIZER):
 
         self.controls = {}
         for name in self.sim.getJoints():
-            self.controls[name] = p.addUserDebugParameter(name, 0, 4 * math.pi, 0)
+            self.controls[name] = p.addUserDebugParameter(name, -4 * math.pi, 4 * math.pi, 0)
 
     def next_frame(self, shoulder_angles: [float, float]):
         targets = {}
         for name in self.controls.keys():
-            targets[name] = p.readUserDebugParameter(self.controls[name]) % (2 * math.pi) - math.pi
+            targets[name] = p.readUserDebugParameter(self.controls[name])
         
-        targets["shoulder_right"] = shoulder_angles[0] 
-        targets["shoulder_left"] = shoulder_angles[1] 
+        # targets["shoulder_right"] = shoulder_angles[0] 
+        # targets["shoulder_left"] = shoulder_angles[1] 
 
         self.sim.setJoints(targets)
 

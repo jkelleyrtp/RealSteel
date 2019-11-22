@@ -68,6 +68,10 @@ class ROBOT:
         # Set up a shared queue to put human angles into
         input_queue = Queue()
 
+        input_queue.push()
+
+        a = input_queue.get_nowait()
+
         # Get the process for the input method and start it
         input_proc = self.joint_input.launch(input_queue)
         input_proc.start()
@@ -82,12 +86,3 @@ class ROBOT:
 
             # Pump out the angles to the visualizer
             self.visualizer.next_frame(pos)
-
-
-
-
-        
-
-
-
-
