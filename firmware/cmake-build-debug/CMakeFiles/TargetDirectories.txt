@@ -1,0 +1,3 @@
+/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles/firmware.elf.dir
+/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles/edit_cache.dir

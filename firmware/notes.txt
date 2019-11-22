@@ -1,0 +1,131 @@
+General notes:
+
+
+Per bot:
+    - 4 encoders
+    - 4 potentiometers
+    - 1 servo
+        - 1 PWM channel
+    - 6 motors
+        - 12 PWM channels
+
+
+
+If single board:
+
+8 encoders
+4 pots
+2 servo PWM
+12 motor PWM pairs
+8 hall sensors (?)
+
+UART6 for comms
+
++x is robot forward
++y is robot left (looking along +x)
++z is robot up
+
+10KHz motor update rate
+4096 steps (+/- 2048)
+
+On APB1 (84MHz)
+    TIM2
+    TIM3
+    TIM4
+    TIM12
+    TIM13 (servo)
+    TIM14 (servo)
+
+On APB2 (168MHz)
+    TIM1
+    TIM8
+    TIM9
+    TIM10 (servo)
+    TIM11 (servo)
+
+TIM 1,8,9
+- 4096 autoreload
+- 20KHz goal
+- /2 prescaler -> 20.507 KHz
+
+TIM 2,3,4,12
+- 4096 autoreload
+- 20KHz goal
+- /1 prescaler -> 20.507 KHz
+
+TIM 10,11
+- 16384 autoreload
+- 50Hz goal
+- /204 prescaler -> 50.26 Hz
+
+TIM 13,14
+- 16384 autoreload
+- 50Hz goal
+- /102 prescaler -> 50.26 Hz
+
+
+
+TIM1
+    CH1 Robot A right shoulder joint 1 PWM A
+    CH2 Robot A right shoulder joint 1 PWM B
+    CH3 Robot B right shoulder joint 1 PWM A
+    CH4 Robot B right shoulder joint 1 PWM B
+TIM2
+    CH1 Robot A left shoulder joint 1 PWM A
+    CH2 Robot A left shoulder joint 1 PWM B
+    CH3 Robot B left shoulder joint 1 PWM A
+    CH4 Robot B left shoulder joint 1 PWM B
+TIM3
+    CH1 Robot A right shoulder joint 2 PWM A
+    CH2 Robot A right shoulder joint 2 PWM B
+    CH3 Robot B right shoulder joint 2 PWM A
+    CH4 Robot B right shoulder joint 2 PWM B
+TIM4
+    CH1 Robot A left shoulder joint 2 PWM A
+    CH2 Robot A left shoulder joint 2 PWM B
+    CH3 Robot B left shoulder joint 2 PWM A
+    CH4 Robot B left shoulder joint 2 PWM B
+TIM5
+    CH1 Conflict w/ TIM2
+    CH2 Conflict w/ TIM2
+    CH3 Conflict w/ TIM2
+    CH4 Conflict w/ TIM2
+
+TIM6 [internal only]
+TIM7 [internal only]
+TIM8
+    CH1 Robot A hip y joint PWM A
+    CH2 Robot A hip y joint PWM B
+    CH3 Robot B hip y joint PWM A
+    CH4 Robot B hip y joint PWM B
+TIM9
+    CH1 Robot A hip x joint PWM A
+    CH2 Robot A hip x joint PWM B
+TIM10
+    CH1 Robot A left elbow servo PWM
+TIM11
+    CH1 Robot B left elbow servo PWM
+TIM12
+    CH1 Robot B hip x joint PWM A
+    CH2 Robot B hip x joint PWM B
+TIM13
+    CH1 Robot A right elbow servo PWM
+TIM14
+    CH1 Robot B right elbow servo PWM
+
+I2C Bus 1:
+    - Encoder capture from Robot A
+
+I2C Bus 2:
+    - Encoder capture from Robot B
+
+ADC1
+    IN4 Robot A hip x pot
+    IN5 Robot A hip y pot
+    IN10 Robot B hip x pot
+    IN11 Robot B hip y pot
+    IN12 Robot A right elbow pot
+    IN13 Robot B right elbow pot
+    IN14 Robot A left elbow pot
+    IN15 Robot B left elbow pot
+
