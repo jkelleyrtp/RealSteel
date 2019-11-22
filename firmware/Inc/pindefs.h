@@ -104,8 +104,8 @@ namespace robotA {
         }
       }
       namespace J2 {
-        static const auto timer = &htim3;
         namespace pwm {
+          static const auto timer = &htim3;
           namespace A {
             static const pindef pin = {BOT_A_SHLDR_R_J2_PWM_A_GPIO_Port, BOT_A_SHLDR_R_J2_PWM_A_Pin};
             static const auto channel = TIM_CHANNEL_1;

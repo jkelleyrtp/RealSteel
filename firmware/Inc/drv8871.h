@@ -18,12 +18,15 @@ private:
   float speed;
   enum {OFF, FORWARD, REVERSE} state;
 
+  const bool reverse;
+
 public:
   drv8871(pindef pinA_,
           pindef pinB_,
           const TIM_HandleTypeDef * timer_,
           uint8_t channelA_,
-          uint8_t channelB_) noexcept;
+          uint8_t channelB_,
+          bool reverse_) noexcept;
 
   void set(float speed_);
 };

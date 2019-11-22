@@ -852,6 +852,33 @@ Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.s:
 	$(MAKE) -f CMakeFiles/firmware.elf.dir/build.make CMakeFiles/firmware.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.s
 .PHONY : Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.s
 
+Src/CascadingPIDController.obj: Src/CascadingPIDController.cpp.obj
+
+.PHONY : Src/CascadingPIDController.obj
+
+# target to build an object file
+Src/CascadingPIDController.cpp.obj:
+	$(MAKE) -f CMakeFiles/firmware.elf.dir/build.make CMakeFiles/firmware.elf.dir/Src/CascadingPIDController.cpp.obj
+.PHONY : Src/CascadingPIDController.cpp.obj
+
+Src/CascadingPIDController.i: Src/CascadingPIDController.cpp.i
+
+.PHONY : Src/CascadingPIDController.i
+
+# target to preprocess a source file
+Src/CascadingPIDController.cpp.i:
+	$(MAKE) -f CMakeFiles/firmware.elf.dir/build.make CMakeFiles/firmware.elf.dir/Src/CascadingPIDController.cpp.i
+.PHONY : Src/CascadingPIDController.cpp.i
+
+Src/CascadingPIDController.s: Src/CascadingPIDController.cpp.s
+
+.PHONY : Src/CascadingPIDController.s
+
+# target to generate assembly for a file
+Src/CascadingPIDController.cpp.s:
+	$(MAKE) -f CMakeFiles/firmware.elf.dir/build.make CMakeFiles/firmware.elf.dir/Src/CascadingPIDController.cpp.s
+.PHONY : Src/CascadingPIDController.cpp.s
+
 Src/PIDController.obj: Src/PIDController.cpp.obj
 
 .PHONY : Src/PIDController.obj
@@ -1437,6 +1464,9 @@ help:
 	@echo "... Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.obj"
 	@echo "... Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.i"
 	@echo "... Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.s"
+	@echo "... Src/CascadingPIDController.obj"
+	@echo "... Src/CascadingPIDController.i"
+	@echo "... Src/CascadingPIDController.s"
 	@echo "... Src/PIDController.obj"
 	@echo "... Src/PIDController.i"
 	@echo "... Src/PIDController.s"

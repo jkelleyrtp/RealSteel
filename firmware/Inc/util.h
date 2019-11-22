@@ -4,7 +4,6 @@
 
 #pragma once
 
-#undef fabs
 #include <math.h>
 
 template<class T> inline constexpr
@@ -22,8 +21,8 @@ T clamp(const T lower, const T val, const T upper) {
   return max(min(val, upper), lower);
 }
 
-#define __const __attribute__((const))
-#define __forceinline __attribute__((always_inline))
+//#define __const __attribute__((const))
+#define __forceinline inline __attribute__((always_inline))
 #define __nothrow __attribute__((nothrow))
 #define __hot __attribute__((hot))
 

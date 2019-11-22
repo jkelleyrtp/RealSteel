@@ -59,6 +59,8 @@ void SysTick_Handler(void);
 void OTG_FS_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
+//extern void systick_user();
+
 /* USER CODE END EFP */
 
 #ifdef __cplusplus

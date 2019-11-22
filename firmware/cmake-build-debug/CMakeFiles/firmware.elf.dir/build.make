@@ -408,9 +408,22 @@ CMakeFiles/firmware.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usb
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/firmware.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.s"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c -o CMakeFiles/firmware.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.s
 
+CMakeFiles/firmware.elf.dir/Src/CascadingPIDController.cpp.obj: CMakeFiles/firmware.elf.dir/flags.make
+CMakeFiles/firmware.elf.dir/Src/CascadingPIDController.cpp.obj: ../Src/CascadingPIDController.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/firmware.elf.dir/Src/CascadingPIDController.cpp.obj"
+	/usr/bin/arm-none-eabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/CascadingPIDController.cpp.obj -c /home/solomon/code/FA19_POE_Final/firmware/Src/CascadingPIDController.cpp
+
+CMakeFiles/firmware.elf.dir/Src/CascadingPIDController.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/firmware.elf.dir/Src/CascadingPIDController.cpp.i"
+	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/solomon/code/FA19_POE_Final/firmware/Src/CascadingPIDController.cpp > CMakeFiles/firmware.elf.dir/Src/CascadingPIDController.cpp.i
+
+CMakeFiles/firmware.elf.dir/Src/CascadingPIDController.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/firmware.elf.dir/Src/CascadingPIDController.cpp.s"
+	/usr/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/solomon/code/FA19_POE_Final/firmware/Src/CascadingPIDController.cpp -o CMakeFiles/firmware.elf.dir/Src/CascadingPIDController.cpp.s
+
 CMakeFiles/firmware.elf.dir/Src/PIDController.cpp.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/PIDController.cpp.obj: ../Src/PIDController.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/firmware.elf.dir/Src/PIDController.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/firmware.elf.dir/Src/PIDController.cpp.obj"
 	/usr/bin/arm-none-eabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/PIDController.cpp.obj -c /home/solomon/code/FA19_POE_Final/firmware/Src/PIDController.cpp
 
 CMakeFiles/firmware.elf.dir/Src/PIDController.cpp.i: cmake_force
@@ -423,7 +436,7 @@ CMakeFiles/firmware.elf.dir/Src/PIDController.cpp.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/adc.c.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/adc.c.obj: ../Src/adc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/firmware.elf.dir/Src/adc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/firmware.elf.dir/Src/adc.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/adc.c.obj   -c /home/solomon/code/FA19_POE_Final/firmware/Src/adc.c
 
 CMakeFiles/firmware.elf.dir/Src/adc.c.i: cmake_force
@@ -436,7 +449,7 @@ CMakeFiles/firmware.elf.dir/Src/adc.c.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/drv8871.cpp.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/drv8871.cpp.obj: ../Src/drv8871.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/firmware.elf.dir/Src/drv8871.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/firmware.elf.dir/Src/drv8871.cpp.obj"
 	/usr/bin/arm-none-eabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/drv8871.cpp.obj -c /home/solomon/code/FA19_POE_Final/firmware/Src/drv8871.cpp
 
 CMakeFiles/firmware.elf.dir/Src/drv8871.cpp.i: cmake_force
@@ -449,7 +462,7 @@ CMakeFiles/firmware.elf.dir/Src/drv8871.cpp.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/gpio.c.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/gpio.c.obj: ../Src/gpio.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/firmware.elf.dir/Src/gpio.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/firmware.elf.dir/Src/gpio.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/gpio.c.obj   -c /home/solomon/code/FA19_POE_Final/firmware/Src/gpio.c
 
 CMakeFiles/firmware.elf.dir/Src/gpio.c.i: cmake_force
@@ -462,7 +475,7 @@ CMakeFiles/firmware.elf.dir/Src/gpio.c.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/i2c.c.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/i2c.c.obj: ../Src/i2c.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/firmware.elf.dir/Src/i2c.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/firmware.elf.dir/Src/i2c.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/i2c.c.obj   -c /home/solomon/code/FA19_POE_Final/firmware/Src/i2c.c
 
 CMakeFiles/firmware.elf.dir/Src/i2c.c.i: cmake_force
@@ -475,7 +488,7 @@ CMakeFiles/firmware.elf.dir/Src/i2c.c.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/main.cpp.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/main.cpp.obj: ../Src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/firmware.elf.dir/Src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/firmware.elf.dir/Src/main.cpp.obj"
 	/usr/bin/arm-none-eabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/main.cpp.obj -c /home/solomon/code/FA19_POE_Final/firmware/Src/main.cpp
 
 CMakeFiles/firmware.elf.dir/Src/main.cpp.i: cmake_force
@@ -488,7 +501,7 @@ CMakeFiles/firmware.elf.dir/Src/main.cpp.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/quadratureslave.cpp.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/quadratureslave.cpp.obj: ../Src/quadratureslave.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/firmware.elf.dir/Src/quadratureslave.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/firmware.elf.dir/Src/quadratureslave.cpp.obj"
 	/usr/bin/arm-none-eabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/quadratureslave.cpp.obj -c /home/solomon/code/FA19_POE_Final/firmware/Src/quadratureslave.cpp
 
 CMakeFiles/firmware.elf.dir/Src/quadratureslave.cpp.i: cmake_force
@@ -501,7 +514,7 @@ CMakeFiles/firmware.elf.dir/Src/quadratureslave.cpp.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/servo.cpp.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/servo.cpp.obj: ../Src/servo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/firmware.elf.dir/Src/servo.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/firmware.elf.dir/Src/servo.cpp.obj"
 	/usr/bin/arm-none-eabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/servo.cpp.obj -c /home/solomon/code/FA19_POE_Final/firmware/Src/servo.cpp
 
 CMakeFiles/firmware.elf.dir/Src/servo.cpp.i: cmake_force
@@ -514,7 +527,7 @@ CMakeFiles/firmware.elf.dir/Src/servo.cpp.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/stm32f4xx_hal_msp.c.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/stm32f4xx_hal_msp.c.obj: ../Src/stm32f4xx_hal_msp.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/firmware.elf.dir/Src/stm32f4xx_hal_msp.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/firmware.elf.dir/Src/stm32f4xx_hal_msp.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/stm32f4xx_hal_msp.c.obj   -c /home/solomon/code/FA19_POE_Final/firmware/Src/stm32f4xx_hal_msp.c
 
 CMakeFiles/firmware.elf.dir/Src/stm32f4xx_hal_msp.c.i: cmake_force
@@ -527,7 +540,7 @@ CMakeFiles/firmware.elf.dir/Src/stm32f4xx_hal_msp.c.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/stm32f4xx_it.c.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/stm32f4xx_it.c.obj: ../Src/stm32f4xx_it.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/firmware.elf.dir/Src/stm32f4xx_it.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/firmware.elf.dir/Src/stm32f4xx_it.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/stm32f4xx_it.c.obj   -c /home/solomon/code/FA19_POE_Final/firmware/Src/stm32f4xx_it.c
 
 CMakeFiles/firmware.elf.dir/Src/stm32f4xx_it.c.i: cmake_force
@@ -540,7 +553,7 @@ CMakeFiles/firmware.elf.dir/Src/stm32f4xx_it.c.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/syscalls.c.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/syscalls.c.obj: ../Src/syscalls.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/firmware.elf.dir/Src/syscalls.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/firmware.elf.dir/Src/syscalls.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/syscalls.c.obj   -c /home/solomon/code/FA19_POE_Final/firmware/Src/syscalls.c
 
 CMakeFiles/firmware.elf.dir/Src/syscalls.c.i: cmake_force
@@ -553,7 +566,7 @@ CMakeFiles/firmware.elf.dir/Src/syscalls.c.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/system_stm32f4xx.c.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/system_stm32f4xx.c.obj: ../Src/system_stm32f4xx.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/firmware.elf.dir/Src/system_stm32f4xx.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/firmware.elf.dir/Src/system_stm32f4xx.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/system_stm32f4xx.c.obj   -c /home/solomon/code/FA19_POE_Final/firmware/Src/system_stm32f4xx.c
 
 CMakeFiles/firmware.elf.dir/Src/system_stm32f4xx.c.i: cmake_force
@@ -566,7 +579,7 @@ CMakeFiles/firmware.elf.dir/Src/system_stm32f4xx.c.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/tim.c.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/tim.c.obj: ../Src/tim.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/firmware.elf.dir/Src/tim.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/firmware.elf.dir/Src/tim.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/tim.c.obj   -c /home/solomon/code/FA19_POE_Final/firmware/Src/tim.c
 
 CMakeFiles/firmware.elf.dir/Src/tim.c.i: cmake_force
@@ -579,7 +592,7 @@ CMakeFiles/firmware.elf.dir/Src/tim.c.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/usart.c.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/usart.c.obj: ../Src/usart.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/firmware.elf.dir/Src/usart.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/firmware.elf.dir/Src/usart.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/usart.c.obj   -c /home/solomon/code/FA19_POE_Final/firmware/Src/usart.c
 
 CMakeFiles/firmware.elf.dir/Src/usart.c.i: cmake_force
@@ -592,7 +605,7 @@ CMakeFiles/firmware.elf.dir/Src/usart.c.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/usb_device.c.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/usb_device.c.obj: ../Src/usb_device.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/firmware.elf.dir/Src/usb_device.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/firmware.elf.dir/Src/usb_device.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/usb_device.c.obj   -c /home/solomon/code/FA19_POE_Final/firmware/Src/usb_device.c
 
 CMakeFiles/firmware.elf.dir/Src/usb_device.c.i: cmake_force
@@ -605,7 +618,7 @@ CMakeFiles/firmware.elf.dir/Src/usb_device.c.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/usbd_cdc_if.c.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/usbd_cdc_if.c.obj: ../Src/usbd_cdc_if.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/firmware.elf.dir/Src/usbd_cdc_if.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/firmware.elf.dir/Src/usbd_cdc_if.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/usbd_cdc_if.c.obj   -c /home/solomon/code/FA19_POE_Final/firmware/Src/usbd_cdc_if.c
 
 CMakeFiles/firmware.elf.dir/Src/usbd_cdc_if.c.i: cmake_force
@@ -618,7 +631,7 @@ CMakeFiles/firmware.elf.dir/Src/usbd_cdc_if.c.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/usbd_conf.c.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/usbd_conf.c.obj: ../Src/usbd_conf.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/firmware.elf.dir/Src/usbd_conf.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/firmware.elf.dir/Src/usbd_conf.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/usbd_conf.c.obj   -c /home/solomon/code/FA19_POE_Final/firmware/Src/usbd_conf.c
 
 CMakeFiles/firmware.elf.dir/Src/usbd_conf.c.i: cmake_force
@@ -631,7 +644,7 @@ CMakeFiles/firmware.elf.dir/Src/usbd_conf.c.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/Src/usbd_desc.c.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/Src/usbd_desc.c.obj: ../Src/usbd_desc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/firmware.elf.dir/Src/usbd_desc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/firmware.elf.dir/Src/usbd_desc.c.obj"
 	/usr/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/firmware.elf.dir/Src/usbd_desc.c.obj   -c /home/solomon/code/FA19_POE_Final/firmware/Src/usbd_desc.c
 
 CMakeFiles/firmware.elf.dir/Src/usbd_desc.c.i: cmake_force
@@ -644,7 +657,7 @@ CMakeFiles/firmware.elf.dir/Src/usbd_desc.c.s: cmake_force
 
 CMakeFiles/firmware.elf.dir/startup/startup_stm32f446xx.s.obj: CMakeFiles/firmware.elf.dir/flags.make
 CMakeFiles/firmware.elf.dir/startup/startup_stm32f446xx.s.obj: ../startup/startup_stm32f446xx.s
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building ASM object CMakeFiles/firmware.elf.dir/startup/startup_stm32f446xx.s.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building ASM object CMakeFiles/firmware.elf.dir/startup/startup_stm32f446xx.s.obj"
 	/usr/bin/arm-none-eabi-gcc $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles/firmware.elf.dir/startup/startup_stm32f446xx.s.obj -c /home/solomon/code/FA19_POE_Final/firmware/startup/startup_stm32f446xx.s
 
 # Object files for target firmware.elf
@@ -676,6 +689,7 @@ firmware_elf_OBJECTS = \
 "CMakeFiles/firmware.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj" \
 "CMakeFiles/firmware.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj" \
 "CMakeFiles/firmware.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj" \
+"CMakeFiles/firmware.elf.dir/Src/CascadingPIDController.cpp.obj" \
 "CMakeFiles/firmware.elf.dir/Src/PIDController.cpp.obj" \
 "CMakeFiles/firmware.elf.dir/Src/adc.c.obj" \
 "CMakeFiles/firmware.elf.dir/Src/drv8871.cpp.obj" \
@@ -726,6 +740,7 @@ firmware.elf: CMakeFiles/firmware.elf.dir/Middlewares/ST/STM32_USB_Device_Librar
 firmware.elf: CMakeFiles/firmware.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
 firmware.elf: CMakeFiles/firmware.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
 firmware.elf: CMakeFiles/firmware.elf.dir/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
+firmware.elf: CMakeFiles/firmware.elf.dir/Src/CascadingPIDController.cpp.obj
 firmware.elf: CMakeFiles/firmware.elf.dir/Src/PIDController.cpp.obj
 firmware.elf: CMakeFiles/firmware.elf.dir/Src/adc.c.obj
 firmware.elf: CMakeFiles/firmware.elf.dir/Src/drv8871.cpp.obj
@@ -747,7 +762,7 @@ firmware.elf: CMakeFiles/firmware.elf.dir/Src/usbd_desc.c.obj
 firmware.elf: CMakeFiles/firmware.elf.dir/startup/startup_stm32f446xx.s.obj
 firmware.elf: CMakeFiles/firmware.elf.dir/build.make
 firmware.elf: CMakeFiles/firmware.elf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Linking CXX executable firmware.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Linking CXX executable firmware.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/firmware.elf.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building /home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/firmware.hex"
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building /home/solomon/code/FA19_POE_Final/firmware/cmake-build-debug/firmware.bin"

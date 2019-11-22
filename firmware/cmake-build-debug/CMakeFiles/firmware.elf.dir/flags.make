@@ -10,13 +10,13 @@ ASM_DEFINES = -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DSTM32
 
 ASM_INCLUDES = -I/home/solomon/code/FA19_POE_Final/firmware/Inc -I/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include -I/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc 
 
-C_FLAGS = -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections     -g -fno-common -fmessage-length=0 -specs=nosys.specs -specs=nano.specs -std=gnu17 -g  
+C_FLAGS = -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections     -g -fno-common -fmessage-length=0 -specs=nosys.specs -specs=nano.specs -std=gnu17 -O3 -g  
 
 C_DEFINES = -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DSTM32F446xx -DUSE_HAL_DRIVER -D__FPU_PRESENT=1 -D__packed="__attribute__((__packed__))" -D__weak="__attribute__((weak))"
 
 C_INCLUDES = -I/home/solomon/code/FA19_POE_Final/firmware/Inc -I/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc -I/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Device/ST/STM32F4xx/Include -I/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include -I/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc 
 
-CXX_FLAGS = -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections     -g -fno-common -fmessage-length=0 -specs=nosys.specs -specs=nano.specs -std=gnu++17 -g   -std=gnu++17
+CXX_FLAGS = -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections     -g -fno-common -fmessage-length=0 -specs=nosys.specs -specs=nano.specs -std=gnu++17 -O3 -g   -std=gnu++17
 
 CXX_DEFINES = -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DSTM32F446xx -DUSE_HAL_DRIVER -D__FPU_PRESENT=1 -D__packed="__attribute__((__packed__))" -D__weak="__attribute__((weak))"
 

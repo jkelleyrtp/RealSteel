@@ -36,14 +36,15 @@ drv8871::drv8871(const pindef pinA_,
                  const pindef pinB_,
                  const TIM_HandleTypeDef *const timer_,
                  const uint8_t channelA_,
-                 const uint8_t channelB_) noexcept
-    : pinA(pinA_), pinB(pinB_), timer(timer_), channelA(channelA_), channelB(channelB_) {
+                 const uint8_t channelB_, const bool reverse_) noexcept
+    : pinA(pinA_), pinB(pinB_), timer(timer_), channelA(channelA_), channelB(channelB_), reverse(reverse_) {
   speed = 0.0;
   state = OFF;
 }
 void drv8871::set(const float speed_) {
   bool isZero = isClose(speed_, 0.0);
   speed = clamp<float>(-1.0, speed_, 1.0);
+  if (reverse) speed = speed * -1;
 
   if (isZero) state = OFF;
   else if (__signbitf(speed) == 0)

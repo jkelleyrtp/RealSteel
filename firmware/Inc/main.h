@@ -58,6 +58,7 @@ void Error_Handler(void);
 
 #ifdef __GNUC__
 #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#define GETCHAR_PROTOTYPE int __io_getchar(void)
 #else
 #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
 #endif /* __GNUC__ */
@@ -71,14 +72,8 @@ void Error_Handler(void);
 #define BOT_A_HIP_X_PWM_B_GPIO_Port GPIOE
 #define USER_Btn_Pin GPIO_PIN_13
 #define USER_Btn_GPIO_Port GPIOC
-#define ENC1_BITBANG_A_Pin GPIO_PIN_2
+#define ENC1_BITBANG_A_Pin GPIO_PIN_5
 #define ENC1_BITBANG_A_GPIO_Port GPIOF
-#define ENC1_BITBANG_B_Pin GPIO_PIN_3
-#define ENC1_BITBANG_B_GPIO_Port GPIOF
-#define ENC2_BITBANG_A_Pin GPIO_PIN_4
-#define ENC2_BITBANG_A_GPIO_Port GPIOF
-#define ENC2_BITBANG_B_Pin GPIO_PIN_5
-#define ENC2_BITBANG_B_GPIO_Port GPIOF
 #define BOT_A_ELBOW_L_SERVO_Pin GPIO_PIN_6
 #define BOT_A_ELBOW_L_SERVO_GPIO_Port GPIOF
 #define BOT_B_ELBOW_L_SERVO_Pin GPIO_PIN_7
@@ -87,6 +82,8 @@ void Error_Handler(void);
 #define BOT_A_ELBOW_R_SERVO_GPIO_Port GPIOF
 #define BOT_B_ELBOW_R_SERVO_Pin GPIO_PIN_9
 #define BOT_B_ELBOW_R_SERVO_GPIO_Port GPIOF
+#define ENC1_BITBANG_B_Pin GPIO_PIN_10
+#define ENC1_BITBANG_B_GPIO_Port GPIOF
 #define MCO_Pin GPIO_PIN_0
 #define MCO_GPIO_Port GPIOH
 #define BOT_B_HIP_X_POT_Pin GPIO_PIN_0
@@ -167,6 +164,10 @@ void Error_Handler(void);
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
+#define ENC2_BITBANG_B_Pin GPIO_PIN_10
+#define ENC2_BITBANG_B_GPIO_Port GPIOC
+#define ENC2_BITBANG_A_Pin GPIO_PIN_11
+#define ENC2_BITBANG_A_GPIO_Port GPIOC
 #define LD2_Pin GPIO_PIN_7
 #define LD2_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */

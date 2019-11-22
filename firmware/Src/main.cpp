@@ -32,6 +32,7 @@
 #include <math.h>
 #include "PIDController.h"
 #include "util.h"
+//#include "CascadingPIDController.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -57,14 +58,45 @@
 
 /* USER CODE BEGIN PV */
 
-namespace robotA::shoulder::R::J1 {
-  static __used drv8871 *const driver = new drv8871(
-      pwm::A::pin,
-      pwm::B::pin,
-      pwm::timer,
-      pwm::A::channel,
-      pwm::B::channel
-  );
+namespace robotA::shoulder::R {
+  namespace J1 {
+    static __used drv8871 *const driver = new drv8871(
+        pwm::A::pin,
+        pwm::B::pin,
+        pwm::timer,
+        pwm::A::channel,
+        pwm::B::channel,
+        true
+    );
+
+    static __used auto *const pidcntl = new PIDController(
+        0.38,
+        0.1,
+        1.0,
+        0.0,
+        .4,
+        1.0
+    );
+  }
+  namespace J2 {
+    static __used drv8871 *const driver = new drv8871(
+        pwm::A::pin,
+        pwm::B::pin,
+        pwm::timer,
+        pwm::A::channel,
+        pwm::B::channel,
+        true
+    );
+
+    static __used auto *const pidcntl = new PIDController(
+        0.65,
+        0.1,
+        0.5,
+        0.0,
+        0.5,
+        1.0
+    );
+  }
 }
 
 /* USER CODE END PV */
@@ -98,6 +130,13 @@ extern "C" PUTCHAR_PROTOTYPE {
   return ch;
 }
 
+extern "C" GETCHAR_PROTOTYPE {
+  uint8_t ch;
+  HAL_UART_Receive(&huart6, &ch, 1, 0xffff);
+  return ch;
+}
+
+
 struct ENC_STATE {
   bool A;
   bool B;
@@ -110,8 +149,8 @@ inline bool operator!=(const ENC_STATE &lhs, const ENC_STATE &rhs) {
   return !(lhs == rhs);
 }
 
-static int32_t enc1_count = 0;
-static int32_t enc2_count = 0;
+static volatile int32_t enc1_count = 0;
+static volatile int32_t enc2_count = 0;
 
 static ENC_STATE enc1_state;
 static ENC_STATE enc2_state;
@@ -147,22 +186,113 @@ void __hot chkEncState() {
   ENC_STATE new_1 = getEnc1State();
   ENC_STATE new_2 = getEnc2State();
 
+  //printf("Enc 1 state: %du, %du\r\n", new_1.A, new_1.B);
   pinstate ATrans, BTrans;
 
   if (new_1 != enc1_state) {
-    ATrans = (new_1.A > enc1_state.A) ? RISING : (new_1.B < enc1_state.B) ? FALLING : HOLD;
-    BTrans = (new_1.A > enc1_state.A) ? RISING : (new_1.B < enc1_state.B) ? FALLING : HOLD;
+    ATrans = (new_1.A > enc1_state.A) ? RISING : (new_1.A < enc1_state.A) ? FALLING : HOLD;
+    BTrans = (new_1.B > enc1_state.B) ? RISING : (new_1.B < enc1_state.B) ? FALLING : HOLD;
     enc1_count += quad_lut(ATrans, BTrans, new_1.A, new_1.B);
   }
 
   if (new_2 != enc2_state) {
-    ATrans = (new_2.A > enc2_state.A) ? RISING : (new_2.B < enc2_state.B) ? FALLING : HOLD;
-    BTrans = (new_2.A > enc2_state.A) ? RISING : (new_2.B < enc2_state.B) ? FALLING : HOLD;
+    ATrans = (new_2.A > enc2_state.A) ? RISING : (new_2.A < enc2_state.A) ? FALLING : HOLD;
+    BTrans = (new_2.B > enc2_state.B) ? RISING : (new_2.B < enc2_state.B) ? FALLING : HOLD;
     enc2_count += quad_lut(ATrans, BTrans, new_2.A, new_2.B);
   }
 
   enc1_state = new_1;
   enc2_state = new_2;
+}
+
+bool en_systick = false;
+
+static volatile int32_t old1_count;
+static volatile int32_t old2_count;
+static volatile int32_t new1_count;
+static volatile int32_t new2_count;
+static volatile bool print_count1_delta = false;
+static volatile bool print_count2_delta = false;
+
+__inline void update_encs() {
+}
+
+__inline float count_to_rads(const int32_t count) {
+  return count * 0.039269908169872414f;
+}
+
+constexpr uint8_t uart_recv_buf_size = 128;
+static char uart_recv_buf[uart_recv_buf_size];
+static uint8_t uart_recv_buf_ptr = 0;
+
+struct setpointnew { float j1;float j2; };
+
+constexpr uint8_t pbufsize = 20;
+static char buf1[pbufsize];
+static char buf2[pbufsize];
+
+__inline setpointnew parseBuffer() {
+  uint8_t poundidx = 0;
+  uint8_t commaidx = 0;
+  uint8_t emarkidx = 0;
+
+  printf("Buffer: %s\r\n", uart_recv_buf);
+
+  for (uint8_t i = 0; i < pbufsize; i++) {
+    buf1[i] = '\0';
+    buf2[i] = '\0';
+  }
+  for (uint8_t i = 0; i < uart_recv_buf_size; i++) {
+    if (uart_recv_buf[i] == ',')
+      commaidx = i;
+    else if ((commaidx != 0) && (uart_recv_buf[i] == '!')) {
+      emarkidx = i;
+      break;
+    }
+    if (i + 1 == uart_recv_buf_size) {
+      printf("ERROR IN PARSE: OVERRUN\r\n");
+      return {0.0, 0.0};
+    }
+  }
+
+  if (commaidx == 0 || emarkidx == 0) {
+    printf("ERROR IN PARSE: COMMA/EMARK NOT FOUND\r\n");
+    return {0.0, 0.0};
+  }
+
+  uint8_t offset = 0;
+  for (uint8_t i = poundidx + 1; i < commaidx; i++) {
+    //printf("Storing buf[%d]=%c into buf1\r\n", i, uart_recv_buf[i]);
+    buf1[offset] = uart_recv_buf[i];
+    buf1[++offset] = '\0';
+  }
+
+  offset = 0;
+  for (uint8_t i = commaidx + 1; i < emarkidx; i++) {
+    //printf("Storing buf[%d]=%c into buf2\r\n", i, uart_recv_buf[i]);
+    buf2[offset] = uart_recv_buf[i];
+    buf2[++offset] = '\0';
+  }
+
+  printf("Found first float: %s, second float: %s\r\n", buf1, buf2);
+  uint8_t i = 0;
+  while (buf1[i] != '\0')
+    printf("%c", buf1[i++]);
+  printf("\r\n");
+  i = 0;
+  while (buf2[i] != '\0')
+    printf("%c", buf2[i++]);
+  printf("\r\n");
+
+  for (uint8_t i = 0; i < uart_recv_buf_size; i++)
+    uart_recv_buf[i] = '\0';
+
+  uart_recv_buf_ptr = 0;
+
+  float fl1 = atof(buf1);
+  float fl2 = atof(buf2);
+  printf("Decoding to %f, %f \r\n", fl1, fl2);
+  return {fl1, fl2};
 }
 
 /* USER CODE END 0 */
@@ -215,29 +345,103 @@ int main(void) {
 
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
 
   enc1_state = getEnc1State();
   enc2_state = getEnc2State();
 
   robotA::shoulder::R::J1::driver->set(0.0);
+  robotA::shoulder::R::J2::driver->set(0.0);
+
+  robotA::shoulder::R::J1::pidcntl->setSetpoint(0.0);
+  robotA::shoulder::R::J2::pidcntl->setSetpoint(0.0);
+
+  uint8_t cntr = 0;
+
+  for (uint8_t i = 0; i < uart_recv_buf_size; i++)
+    uart_recv_buf[i] = '\0';
+
+  printf("User code started\r\n");
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
   while (1) {
-    int32_t enc1_count_0 = enc1_count;
-    int32_t enc2_count_0 = enc2_count;
 
+    //int32_t old1_count_ = enc1_count;
+    //int32_t old2_count_ = enc2_count;
     chkEncState();
 
-    if (enc1_count_0 != enc1_count)
-      printf("E1: %ld -> %ld", enc1_count_0, enc1_count);
-    if (enc2_count_0 != enc2_count)
-      printf("E2: %ld -> %ld", enc2_count_0, enc2_count);
+    /*
+    if (old1_count_ != enc1_count) {
+      old1_count = old1_count_;
+      printf("E1: %ld -> %ld\r\n", old1_count, new1_count);
+    }
 
-    // Max 531 transitions per second, good speed is ~5KHz
-    HAL_Delay(1);
+    if (old2_count_ != enc2_count) {
+      old2_count = old2_count_;
+      printf("E2: %ld -> %ld\r\n", old2_count, new2_count);
+    }
+     */
+
+    //printf("E1: %ld, %s%s\r\n", enc1_count, enc1_state.A ? "1" : "0", enc1_state.B ? "1" : "0");
+
+    // Max 531 transitions per second, good speed is ~1KHz
+    cntr++;
+    if (cntr == 10) {
+      float enc1_rads = count_to_rads(enc1_count);
+      float enc2_rads = count_to_rads(enc2_count);
+
+      float j1_out = robotA::shoulder::R::J1::pidcntl->update(enc1_rads);
+      float j2_out = robotA::shoulder::R::J2::pidcntl->update(enc2_rads);
+
+      j1_out = clamp<float>(-0.50, j1_out, 0.50);
+      j2_out = clamp<float>(-0.50, j2_out, 0.50);
+      //printf("%f, %f\r\n", enc1_rads, enc2_rads);
+      robotA::shoulder::R::J1::driver->set(j1_out);
+      robotA::shoulder::R::J2::driver->set(j2_out);
+      //robotA::shoulder::R::J1::driver->set(0.0);
+
+      //robotA::shoulder::R::J2::driver->set(j2_out);
+    }
+    cntr = cntr % 10;
+
+#define tuning
+#undef tuning
+
+#ifdef tuning
+    if (HAL_GPIO_ReadPin(USER_Btn_GPIO_Port, USER_Btn_Pin) == GPIO_PIN_SET) {
+      robotA::shoulder::R::J1::pidcntl->setSetpoint(0.0);
+      robotA::shoulder::R::J2::pidcntl->setSetpoint(0.0);
+    } else {
+      robotA::shoulder::R::J1::pidcntl->setSetpoint(0.0f);
+      robotA::shoulder::R::J2::pidcntl->setSetpoint(0.0f);
+    }
+#endif
+
+    if (__HAL_UART_GET_FLAG(&huart6, UART_FLAG_RXNE)) {
+      char ch = __io_getchar();
+      if ((uart_recv_buf_ptr == 0 && ch == '#') || (uart_recv_buf_ptr > 0)) {
+        uart_recv_buf[uart_recv_buf_ptr++] = ch;
+      }
+      if (ch == '!') {
+        setpointnew setpoints = parseBuffer();
+#ifndef tuning
+        //robotA::shoulder::R::J1::pidcntl->setSetpoint(setpoints.j1);
+        robotA::shoulder::R::J1::pidcntl->setSetpoint(0.0);
+        robotA::shoulder::R::J2::pidcntl->setSetpoint(
+            clamp<float>(-1, setpoints.j2, 1)
+        );
+#endif
+      }
+    }
+
+
+    //HAL_Delay(1);
+
 
     /* USER CODE END WHILE */
 

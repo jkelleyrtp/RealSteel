@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="firmware"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="firmware.elf">
+				<Option output="/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/firmware.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DARM_MATH_CM4"/>
+					<Add option="-DARM_MATH_MATRIX_CHECK"/>
+					<Add option="-DARM_MATH_ROUNDING"/>
+					<Add option="-D__FPU_PRESENT=1"/>
+					<Add option="-D__weak=__attribute__((weak))"/>
+					<Add option="-D__packed=__attribute__((__packed__))"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32F446xx"/>
+					<Add directory="/home/solomon/code/FA19_POE_Final/firmware/Inc"/>
+					<Add directory="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc"/>
+					<Add directory="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Device/ST/STM32F4xx/Include"/>
+					<Add directory="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include"/>
+					<Add directory="/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Core/Inc"/>
+					<Add directory="/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include/c++/9.2.0"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include/c++/9.2.0/arm-none-eabi"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include/c++/9.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 firmware.elf"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="firmware.elf/fast">
+				<Option output="/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/firmware.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DARM_MATH_CM4"/>
+					<Add option="-DARM_MATH_MATRIX_CHECK"/>
+					<Add option="-DARM_MATH_ROUNDING"/>
+					<Add option="-D__FPU_PRESENT=1"/>
+					<Add option="-D__weak=__attribute__((weak))"/>
+					<Add option="-D__packed=__attribute__((__packed__))"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32F446xx"/>
+					<Add directory="/home/solomon/code/FA19_POE_Final/firmware/Inc"/>
+					<Add directory="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc"/>
+					<Add directory="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Device/ST/STM32F4xx/Include"/>
+					<Add directory="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include"/>
+					<Add directory="/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Core/Inc"/>
+					<Add directory="/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include/c++/9.2.0"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include/c++/9.2.0/arm-none-eabi"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include/c++/9.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/9.2.0/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 firmware.elf/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/solomon/code/FA19_POE_Final/firmware/cmake-build-release/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/cmsis_armcc.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/cmsis_armclang.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/cmsis_compiler.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/cmsis_gcc.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/cmsis_iccarm.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/cmsis_version.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/core_armv8mbl.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/core_armv8mml.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/core_cm0.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/core_cm0plus.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/core_cm1.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/core_cm23.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/core_cm3.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/core_cm33.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/core_cm4.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/core_cm7.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/core_sc000.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/core_sc300.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/mpu_armv7.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/mpu_armv8.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/CMSIS/Include/tz_context.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/STM32F446ZETx_FLASH.ld">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/CascadingPIDController.cpp">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/PIDController.cpp">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/adc.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/drv8871.cpp">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/gpio.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/i2c.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/main.cpp">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/quadratureslave.cpp">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/servo.cpp">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/stm32f4xx_hal_msp.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/stm32f4xx_it.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/syscalls.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/system_stm32f4xx.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/tim.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/usart.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/usb_device.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/usbd_cdc_if.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/usbd_conf.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/Src/usbd_desc.c">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/startup/startup_stm32f446xx.s">
+			<Option target="firmware.elf"/>
+		</Unit>
+		<Unit filename="/home/solomon/code/FA19_POE_Final/firmware/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

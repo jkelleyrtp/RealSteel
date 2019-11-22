@@ -23,19 +23,21 @@ PIDController::PIDController(float Kp_, float Ki_, float Kd_, float Kf_, float i
 float PIDController::update(float sensor) {
   float error = reference - sensor;
 
-  if (lastTime == 0u)
+  if (isnan(lastTime))
     lastTime = HAL_GetTick();
-  if (lastError == NAN)
+  if (isnan(lastError))
     lastError = error;
 
-  uint32_t dt = HAL_GetTick() - lastTime;
+  int32_t dt = HAL_GetTick() - lastTime;
   float dError = lastError - error;
 
   float deriv;
   if (isClose(dt, 0.0f))
-    deriv = 0.0;
+    deriv = 0.0f;
+  else if (dError == 0)
+    deriv = 0.0f;
   else
-    deriv = dError / dt;
+    deriv = ((float) dError) / ((float) dt);
 
   integrator += error * dt;
   integrator = clamp<float>(-integratorMax, integrator, integratorMax);
@@ -49,6 +51,13 @@ float PIDController::update(float sensor) {
     lin = linearizingFeedforward(sensor);
 
   lastTime = HAL_GetTick();
+
+  //printf("P: %f\r\n", P);
+  //printf("I: %f\r\n", I);
+  //printf("D: %f\r\n", D);
+  //printf("F: %f\r\n", F);
+  //printf("lin: %f\r\n", lin);
+
   return clamp<float>(-maxOut, P + I + D + F + lin, maxOut);
 }
 
@@ -65,4 +74,8 @@ void PIDController::setLinearizingFeedforward(bool enable) {
 void PIDController::setLinearizingFeedforward(float (*linFF)(float), bool enable) {
   linearize = enable;
   linearizingFeedforward = linFF;
+}
+
+void PIDController::setSetpoint(float setpoint) {
+  reference = setpoint;
 }
