@@ -13,8 +13,6 @@ class KSOLVER:
         self.fig = plt.figure()
         self.ax = self.fig.add_subplot(111, projection='3d')
 
-        
-
     def translate_coordinates(self, position_global, new_origin):
         """Translates a point in the global coordinate system to one relative to a new origin"""
         position_global = np.array([position_global[0], position_global[1], position_global[2], 1])
@@ -39,7 +37,6 @@ class KSOLVER:
         target_frame = np.eye(4) 
         target_frame[:3, 3] = target_vector
 
-        # joint_angles = self.left_chain.inverse_kinematics(target_frame)
         joint_angles = inverse_kinematics.inverse_kinematic_optimization(chain, target_frame, prev_angles, .001)
         
         if DEBUG:

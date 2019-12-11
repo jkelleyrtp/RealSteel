@@ -160,6 +160,7 @@ class Pose:
                 cv2.imshow("Depth", cv2.resize(img, (win_w, win_h)))
                 if (cv2.waitKey(1) & 0xFF == ord('q')):
                     plt.close()
+                    queue.close()
                     break
 
         self.close_capture_device()

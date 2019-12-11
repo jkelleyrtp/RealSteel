@@ -165,7 +165,7 @@ class ROBOT:
         #         device_queue.push(joint)
 
         # Set up a shared queue to put human angles into
-        input_queue = Queue(maxsize=2)
+        input_queue = Queue(maxsize=3)
 
         # Get the process for the input method and start it
         input_proc = self.joint_input.launch(input_queue)
@@ -181,40 +181,44 @@ class ROBOT:
 
         while True:
             # Check if there's a new human joint inputs ready
-            joints = input_queue.get()
+            if not input_queue.empty():
+                joints = input_queue.get()
 
-            # Left Hand Kinematics
-            if joints['NITE_JOINT_RIGHT_HAND']:
-                # Shift pose coordinate in reference to desinated base of kinematics chain
-                left_hand = self.solver.translate_coordinates(joints['NITE_JOINT_RIGHT_HAND'],
-                                                 joints['NITE_JOINT_RIGHT_SHOULDER'])
-                       
-                # Invert the z value                                                     
-                left_hand[2] = -left_hand[2]        
+                # Left Hand Kinematics
+                if joints['NITE_JOINT_RIGHT_HAND']:
+                    # Shift pose coordinate in reference to desinated base of kinematics chain
+                    left_hand = self.solver.translate_coordinates(joints['NITE_JOINT_RIGHT_HAND'],
+                                                    joints['NITE_JOINT_RIGHT_SHOULDER'])
+                        
+                    # Invert the z value                                                     
+                    left_hand[2] = -left_hand[2]        
 
-                # Convert from kinect's coordinate system orientaion to ikpy's orientation                                
-                left_hand = self.solver.rotate_x(left_hand, math.pi/2)
+                    # Convert from kinect's coordinate system orientaion to ikpy's orientation                                
+                    left_hand = self.solver.rotate_x(left_hand, math.pi/2)
 
-                left_prev = left_angles
-                left_angles = self.solver.solve(self.left_chain, left_hand, left_prev, DEBUG=False)
+                    left_prev = left_angles
+                    left_angles = self.solver.solve(self.left_chain, left_hand, left_prev, DEBUG=False)
 
-            # Right Hand Kinematics
-            if joints['NITE_JOINT_LEFT_HAND']:
-                # Shift pose coordinate in reference to desinated base of kinematics chain
-                right_hand = self.solver.translate_coordinates(joints['NITE_JOINT_LEFT_HAND'],
-                                                 joints['NITE_JOINT_LEFT_SHOULDER'])
-                       
-                # Invert the z value                                                     
-                right_hand[2] = -right_hand[2]        
+                # Right Hand Kinematics
+                if joints['NITE_JOINT_LEFT_HAND']:
+                    # Shift pose coordinate in reference to desinated base of kinematics chain
+                    right_hand = self.solver.translate_coordinates(joints['NITE_JOINT_LEFT_HAND'],
+                                                    joints['NITE_JOINT_LEFT_SHOULDER'])
+                        
+                    # Invert the z value                                                     
+                    right_hand[2] = -right_hand[2]        
 
-                # Convert from kinect's coordinate system orientaion to ikpy's orientation                                
-                right_hand = self.solver.rotate_x(right_hand, math.pi/2)
-                
-                right_prev = right_angles
-                right_angles = self.solver.solve(self.right_chain, right_hand, right_prev)
+                    # Convert from kinect's coordinate system orientaion to ikpy's orientation                                
+                    right_hand = self.solver.rotate_x(right_hand, math.pi/2)
+                    
+                    right_prev = right_angles
+                    right_angles = self.solver.solve(self.right_chain, right_hand, right_prev)
 
 
                 # joint = ArmJoints(joint_angles[1], joint_angles[2], 0.0)
 
-            # Pump out the angles to the visualizer
-            self.visualizer.next_frame(left_angles[1:4], right_angles[1:4])
+            try:
+                # Pump out the angles to the visualizer
+                self.visualizer.next_frame(left_angles[1:4], right_angles[1:4])
+            except:
+                break
