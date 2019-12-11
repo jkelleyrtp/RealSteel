@@ -135,35 +135,6 @@ class ROBOT:
         self.main_loop()
 
     def main_loop(self):
-        # # Set up a shared queue to put human angles into
-        # input_queue = Queue()
-
-        # # Get the process for the input method and start it
-        # input_proc = self.joint_input.launch(input_queue)
-        # input_proc.start()
-
-        # # Set up the device queue to push data into
-        # device_queue = Queue()
-        # device_proq = self.device.launch(device_queue)
-        # device_proq.start()
-
-        # # Set the initial
-        # joints = {}
-        # joint_angles = [1, 1]
-
-        # while True:
-        #     # Check if there's a new human joint inputs ready
-        #     # if not input_queue.empty():
-        #     joints = input_queue.get()
-        #     if joints['NITE_JOINT_LEFT_HAND']:
-        #         left_hand = self.solver.translate_coordinates_2d(joints['NITE_JOINT_LEFT_HAND'], joints['NITE_JOINT_LEFT_SHOULDER'])
-        #         left_hand = np.append(left_hand, joints['NITE_JOINT_LEFT_HAND'][2])
-        #         joint_angles = self.solver.solve(left_hand)
-
-        #         joint = ArmJoints(joint_angles[0], joint_angles[1], 0.0)
-
-        #         device_queue.push(joint)
-
         # Set up a shared queue to put human angles into
         input_queue = Queue(maxsize=3)
 
@@ -171,13 +142,18 @@ class ROBOT:
         input_proc = self.joint_input.launch(input_queue)
         input_proc.start()
 
+        if self.visualization_mode == "demo":
+            # Set up the device queue to push data into
+            device_queue = Queue()
+            device_proq = self.device.launch(device_queue)
+            device_proq.start()
+
         # Set the initial
         joints = {}
         left_prev = np.asarray([])
         left_angles = np.asarray([0, 0, 0, 0, 0])
         right_prev = np.asarray([])
         right_angles = np.asarray([0, 0, 0, 0, 0])
-        update = True
 
         while True:
             # Check if there's a new human joint inputs ready
@@ -214,11 +190,14 @@ class ROBOT:
                     right_prev = right_angles
                     right_angles = self.solver.solve(self.right_chain, right_hand, right_prev)
 
+                if self.visualization_mode == "demo":
+                    # Get joint data into serial protocol
+                    joint = ArmJoints(left_angles[1:4], rightangles[1:4])
+                    device_queue.push(joint)
 
-                # joint = ArmJoints(joint_angles[1], joint_angles[2], 0.0)
-
-            try:
-                # Pump out the angles to the visualizer
-                self.visualizer.next_frame(left_angles[1:4], right_angles[1:4])
-            except:
-                break
+            if self.visualization_mode == "dev":
+                try:
+                    # Pump out the angles to the visualizer
+                    self.visualizer.next_frame(left_angles[1:4], right_angles[1:4])
+                except:
+                    break

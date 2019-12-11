@@ -79,10 +79,15 @@ class KSOLVER:
             self.fig.canvas.flush_events()
 
 class ArmJoints():
-    def __init__(self, shoulder, proximal, distal):
-        self.shoulder = shoulder
-        self.proximal = proximal
-        self.distal = distal
+    def __init__(self, left, right):
+        self.l_shoulder = left[0]
+        self.l_proximal = left[1]
+        self.l_distal = left[2]
+
+        self.r_shoulder = right[0]
+        self.r_proximal = right[1]
+        self.r_distal = right[2]
 
     def serialize(self):
-        return bytes('#{},{}!'.format(self.shoulder, self.proximal), encoding="ascii")
+        return bytes('#{},{},{},{},{},{},{}!'.format(self.l_shoulder, self.l_proximal, self.l_distal, 
+                     self.r_shoulder, self.r_proximal, self.r_distal), encoding="ascii")
