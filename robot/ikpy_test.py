@@ -21,24 +21,72 @@ def rotate_x(p, angle):
   return t_matrix @ p
 
 
-def solve(chain, wrist_postion):
+def solve(chain, target, DEBUG=True):
   """Performs inverse kinematics and returns joint angles in rads"""
   # Setup target vector with target position at wrist
-  target_vector = np.array([wrist_postion[0], wrist_postion[1], wrist_postion[2]])
+  target_vector = np.array([target[0], target[1], target[2]])
   target_frame = np.eye(4) 
   target_frame[:3, 3] = target_vector
 
-  joint_angles = chain.inverse_kinematics(target_frame)[1:4]
-  print('Joint angles:', joint_angles)
-  print('Computed position vector:', chain.forward_kinematics(chain.inverse_kinematics(target_frame))[:3, 3], \
-      'Original position vector:', target_frame[:3, 3])
-
+  joint_angles = chain.inverse_kinematics(target_frame)
+  
+  if DEBUG:
+      print('Computed position vector:', chain.forward_kinematics(chain.inverse_kinematics(target_frame))[:3, 3], \
+          'Original position vector:', target_frame[:3, 3])
 
   ax = plot_utils.init_3d_figure() 
   chain.plot(chain.inverse_kinematics(target_frame), ax, target=target_vector, show=True) 
 
 
-  return joint_angles
+# def solve(chain, wrist_postion):
+#   """Performs inverse kinematics and returns joint angles in rads"""
+#   # Setup target vector with target position at wrist
+#   target_vector = np.array([wrist_postion[0], wrist_postion[1], wrist_postion[2]])
+#   target_frame = np.eye(4) 
+#   target_frame[:3, 3] = target_vector
+
+#   joint_angles = chain.inverse_kinematics(target_frame)[1:4]
+#   print('Joint angles:', joint_angles)
+#   print('Computed position vector:', chain.forward_kinematics(chain.inverse_kinematics(target_frame))[:3, 3], \
+#       'Original position vector:', target_frame[:3, 3])
+
+
+#   ax = plot_utils.init_3d_figure() 
+#   chain.plot(chain.inverse_kinematics(target_frame), ax, target=target_vector, show=True) 
+
+
+  # return joint_angles
+
+right_chain = Chain(name='right_arm', links=[
+    OriginLink(),
+    URDFLink(
+        name="shoulder_right",
+        translation_vector=[0, 0, 0],
+        # translation_vector=[-0.13182, -2.77556e-17, 0.303536],
+        orientation=[-0.706606, 0.270333, 0.706606],
+        rotation=[0.707107, 0, -0.707107],
+    ),
+    URDFLink(
+        name="proximal_right",
+        # bounds=(-1.92, 1.571),
+        translation_vector=[0.0141421, -4.16334e-17, 0.0424264],
+        orientation=[-0.705905, -0.269757, -0.705905],
+        rotation=[0.707107, 0, 0.707107],
+    ),
+    URDFLink(
+        name="distal_right",
+        # bounds=(-2.094, 0),
+        translation_vector=[-0.115612, -0.0097, 0.0887419],
+        orientation=[4.03219e-17, 0.811584, -3.72977e-15],
+        rotation=[0, -1, 0],
+    ),
+    URDFLink(
+        name="right_tip",
+        translation_vector=[0.0431288, 0.0075, -0.133191],
+        orientation=[-2.77556e-17, 5.55112e-17, -7.84095e-15],
+        rotation=[0, -1, 0],                
+    )
+])
 
 left_chain = Chain(name='left_arm', links=[
     OriginLink(),
@@ -50,12 +98,14 @@ left_chain = Chain(name='left_arm', links=[
     ),
     URDFLink(
         name="proximal_left",
+        bounds=(-1.571, 1.92),
         translation_vector=[-0.0141421, 0, 0.0424264],
         orientation=[-7.77156e-16, 7.77156e-16, 5.55112e-17],
         rotation=[-0.707107, 0, 0.707107],
     ),
     URDFLink(
         name="distal_left",
+        bounds=(0, 2.0944),
         translation_vector=[0.193394, -0.0097, 0.166524],
         orientation=[1.66533e-16, -7.21645e-16, 3.88578e-16],
         rotation=[0, -1, 0],
@@ -78,12 +128,13 @@ left_chain = Chain(name='left_arm', links=[
 # (-0.018213945388793944, 0.2764237365722656, 1.286739990234375) shoulder
 # (0.03636528015136719, 0.09349619293212891, 0.787177490234375) hand
 
-shoulder = (-0.018213945388793944, 0.2764237365722656, 1.286739990234375)
-hand = (0.03636528015136719, 0.09349619293212891, 0.787177490234375)
+# shoulder = (-0.018213945388793944, 0.2764237365722656, 1.286739990234375)
+# hand = (0.03636528015136719, 0.09349619293212891, 0.787177490234375)
 
-left_hand = translate_coordinates(hand, shoulder)
+# left_hand = translate_coordinates(hand, shoulder)
 
-solve(left_chain, [0.21335579,  0.00382629, -0.57779678])
+# solve(right_chain, [-.1, .1, -.1])
+solve(left_chain, [.1, .1, -.1])
 
 
 # target_vector = [0.09679721, -0.05133673,  -0.56544003] 

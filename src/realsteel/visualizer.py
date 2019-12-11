@@ -29,28 +29,28 @@ class ROBOT_VIS(VISUALIZER):
     Sets up a visualizer for a single robot
     """
     def __init__(self, directory="robot"):
-
         self.sim = Simulation(directory)
 
         self.controls = {}
         for name in self.sim.getJoints():
             self.controls[name] = p.addUserDebugParameter(name, -4 * math.pi, 4 * math.pi, 0)
 
-    def next_frame(self, angles: [float, float, float]):
+
+    def next_frame(self, left_angles: [float, float, float], right_angles: [float, float, float]):
         """Visuzlies next frame with shoulder and proximal angles"""
         targets = {}
         for name in self.controls.keys():
             targets[name] = p.readUserDebugParameter(self.controls[name])
-        
-        # targets["shoulder_right"] = shoulder_angles[0] 
-        # targets["shoulder_left"] = shoulder_angles[1] 
 
-        targets["shoulder_left"] = angles[0]
-        targets["proximal_left"] = angles[1]
-        targets["distal_left"] = angles[2]
+        targets["shoulder_left"] = left_angles[0]
+        targets["proximal_left"] = left_angles[1]
+        targets["distal_left"] = left_angles[2]
+
+        targets["shoulder_right"] = right_angles[0]
+        targets["proximal_right"] = right_angles[1]
+        targets["distal_right"] = right_angles[2]
 
         self.sim.setJoints(targets)
-
 
 
 class FAKE_VIS(VISUALIZER):
