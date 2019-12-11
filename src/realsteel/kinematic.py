@@ -7,8 +7,6 @@ from ikpy import plot_utils
 
 # Solve the kinematic 
 
-
-
 class KSOLVER:
     def __init__(self, *args, **kwargs):
         self.chain = Chain(name='left_arm', links=[
