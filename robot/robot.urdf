@@ -24,7 +24,7 @@
 </material>
 </collision>
 <inertial>
-<origin xyz="5.51967e-18 -1.18625e-17 0.117316" rpy="0 0 0"/>
+<origin xyz="5.72666e-19 -1.18642e-17 0.117316" rpy="0 0 0"/>
 <mass value="29.6172"/>
 <inertia ixx="0.383869" ixy="0"  ixz="0" iyy="0.433746" iyz="0" izz="0.187931" />
 </inertial>
@@ -141,14 +141,60 @@
 </inertial>
 </link>
 <joint name="part_7_1_part_7_1_0_part_7_fixing" type="fixed">
-<origin xyz="0.312839 0.0075 -0.510718" rpy="-2.77556e-17 5.55112e-17 1.38778e-17" />
+<origin xyz="0.235057 0.0075 -0.432936" rpy="5.55112e-17 -0 4.16334e-17" />
 <parent link="part_7_1" />
 <child link="part_7_1_0_part_7" />
 <axis xyz="0 0 0"/>
 </joint>
 
+<link name="part_7_2">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="part_7_2_0_part_7">
+<visual>
+<geometry>
+<mesh filename="package://part_7.stl"/>
+</geometry>
+<material name="part_7_2_0_part_7_material">
+<color rgba="0.917647 0.917647 0.917647 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://part_7.stl"/>
+</geometry>
+<material name="part_7_2_0_part_7_material">
+<color rgba="0.917647 0.917647 0.917647 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<mass value="0"/>
+<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<joint name="part_7_2_part_7_2_0_part_7_fixing" type="fixed">
+<origin xyz="0.235057 0.0075 -0.432936" rpy="0 -0 1.38778e-17" />
+<parent link="part_7_2" />
+<child link="part_7_2_0_part_7" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="right_tip" type="revolute">
+<origin xyz="0.0431288 0.0075 -0.133191" rpy="-2.77556e-17 5.55112e-17 -7.84095e-15" />
+<parent link="part_7_1" />
+<child link="part_7_2" />
+<axis xyz="0 -1 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
 <joint name="distal_right" type="revolute">
-<origin xyz="-0.193394 -0.0097 0.166524" rpy="2.01609e-16 0.811584 -3.32655e-15" />
+<origin xyz="-0.115612 -0.0097 0.0887419" rpy="4.03219e-17 0.811584 -3.72977e-15" />
 <parent link="part_6_1" />
 <child link="part_7_1" />
 <axis xyz="0 -1 0"/>
@@ -279,14 +325,60 @@
 </inertial>
 </link>
 <joint name="part_4_1_part_4_1_0_part_4_fixing" type="fixed">
-<origin xyz="-0.312839 0.0075 -0.510718" rpy="0 -0 5.55112e-17" />
+<origin xyz="-0.235057 0.0075 -0.432936" rpy="0 -0 5.55112e-17" />
 <parent link="part_4_1" />
 <child link="part_4_1_0_part_4" />
 <axis xyz="0 0 0"/>
 </joint>
 
+<link name="part_4_2">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="part_4_2_0_part_4">
+<visual>
+<geometry>
+<mesh filename="package://part_4.stl"/>
+</geometry>
+<material name="part_4_2_0_part_4_material">
+<color rgba="0.917647 0.917647 0.917647 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://part_4.stl"/>
+</geometry>
+<material name="part_4_2_0_part_4_material">
+<color rgba="0.917647 0.917647 0.917647 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<mass value="0"/>
+<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<joint name="part_4_2_part_4_2_0_part_4_fixing" type="fixed">
+<origin xyz="-0.235057 -0.0075 -0.432936" rpy="5.55112e-17 -0 5.55112e-17" />
+<parent link="part_4_2" />
+<child link="part_4_2_0_part_4" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="left_tip" type="revolute">
+<origin xyz="-0.0431288 0.0075 -0.133191" rpy="0 -3.33067e-16 -1.11022e-16" />
+<parent link="part_4_1" />
+<child link="part_4_2" />
+<axis xyz="0 1 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
 <joint name="distal_left" type="revolute">
-<origin xyz="0.193394 -0.0097 0.166524" rpy="1.66533e-16 -7.21645e-16 3.88578e-16" />
+<origin xyz="0.115612 -0.0097 0.0887419" rpy="1.66533e-16 -7.21645e-16 3.88578e-16" />
 <parent link="part_3_1" />
 <child link="part_4_1" />
 <axis xyz="0 -1 0"/>

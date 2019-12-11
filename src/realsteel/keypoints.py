@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 import pprint
 from multiprocessing import Process, Queue
+import matplotlib.pyplot as plt
 
 class Pose:
     """Pose estimation class using Kinect, OpenNI2, and NiTE2"""
@@ -158,6 +159,7 @@ class Pose:
 
                 cv2.imshow("Depth", cv2.resize(img, (win_w, win_h)))
                 if (cv2.waitKey(1) & 0xFF == ord('q')):
+                    plt.close()
                     break
 
         self.close_capture_device()

@@ -47,6 +47,7 @@ class ROBOT_VIS(VISUALIZER):
 
         targets["shoulder_left"] = angles[0]
         targets["proximal_left"] = angles[1]
+        targets["distal_left"] = angles[2]
 
         self.sim.setJoints(targets)
 

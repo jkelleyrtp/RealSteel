@@ -112,23 +112,17 @@ class ROBOT:
             # Check if there's a new human joint inputs ready
             joints = input_queue.get()
             if joints['NITE_JOINT_RIGHT_HAND']:
-
-                print('Kinect Left Hand:', joints['NITE_JOINT_RIGHT_HAND'])
-
                 # Shift pose coordinate in reference to desinated base of kinematics chain
                 left_hand = self.solver.translate_coordinates(joints['NITE_JOINT_RIGHT_HAND'],
                                                  joints['NITE_JOINT_RIGHT_SHOULDER'])
+                       
+                # Invert the z value                                                     
+                left_hand[2] = -left_hand[2]        
 
-                print('Left Hand w/ respect to shoulder:', left_hand)
-                print('---------------')
-                                                
-                # Invert the y value (when translating coordinate systems, the origin is moved above the point, needing to negate it)                                                      
-                left_hand[1] = -left_hand[1]        
-                                                 
-                # Convert from kinect's left hand coordinate to ikpy's right hand system                                
-                left_hand = self.solver.rotate_x(left_hand, -math.pi/2)
-                # left_hand = np.append(left_hand, joints['NITE_JOINT_RIGHT_HAND'][2])
-                joint_angles = self.solver.solve(left_hand)
+                # Convert from kinect's coordinate system orientaion to ikpy's orientation                                
+                left_hand = self.solver.rotate_x(left_hand, math.pi/2)
+
+                joint_angles = self.solver.solve(left_hand, DEBUG=False)
 
                 joint = ArmJoints(joint_angles[0], joint_angles[1], 0.0)
 
