@@ -36,7 +36,7 @@ class ROBOT_VIS(VISUALIZER):
         for name in self.sim.getJoints():
             self.controls[name] = p.addUserDebugParameter(name, -4 * math.pi, 4 * math.pi, 0)
 
-    def next_frame(self, angles: [float, float, float]):
+    def next_frame(self, angles: [float, float]):
         """Visuzlies next frame with shoulder and proximal angles"""
         targets = {}
         for name in self.controls.keys():
@@ -44,9 +44,6 @@ class ROBOT_VIS(VISUALIZER):
         
         # targets["shoulder_right"] = shoulder_angles[0] 
         # targets["shoulder_left"] = shoulder_angles[1] 
-
-        targets["shoulder_left"] = angles[0]
-        targets["proximal_left"] = angles[1]
 
         self.sim.setJoints(targets)
 

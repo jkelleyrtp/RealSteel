@@ -1,7 +1,7 @@
 from multiprocessing import Pool, Process, Queue
 import time
 import serial
-from realsteel.kinematic import ArmJoints
+from realsteel.robot import ArmJoints
 
 
 class DEVICE:

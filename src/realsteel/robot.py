@@ -1,8 +1,7 @@
 # This module is essentially the guts of the robot primary logic
 from multiprocessing import Pool, Process, Queue
-import time, math
+import time
 from enum import Enum
-import numpy as np
 
 from realsteel.device import ROBOT_DEVICE, FAKE_DEVICE
 from realsteel.visualizer import DEMO_VIS, ROBOT_VIS, FAKE_VIS
@@ -68,41 +67,20 @@ class ROBOT:
         self.main_loop()
 
     def main_loop(self):
-        # # Set up a shared queue to put human angles into
-        # input_queue = Queue()
-
-        # # Get the process for the input method and start it
-        # input_proc = self.joint_input.launch(input_queue)
-        # input_proc.start()
-
-        # # Set up the device queue to push data into
-        # device_queue = Queue()
-        # device_proq = self.device.launch(device_queue)
-        # device_proq.start()
-
-        # # Set the initial
-        # joints = {}
-        # joint_angles = [1, 1]
-
-        # while True:
-        #     # Check if there's a new human joint inputs ready
-        #     # if not input_queue.empty():
-        #     joints = input_queue.get()
-        #     if joints['NITE_JOINT_LEFT_HAND']:
-        #         left_hand = self.solver.translate_coordinates_2d(joints['NITE_JOINT_LEFT_HAND'], joints['NITE_JOINT_LEFT_SHOULDER'])
-        #         left_hand = np.append(left_hand, joints['NITE_JOINT_LEFT_HAND'][2])
-        #         joint_angles = self.solver.solve(left_hand)
-
-        #         joint = ArmJoints(joint_angles[0], joint_angles[1], 0.0)
-
-        #         device_queue.push(joint)
-
         # Set up a shared queue to put human angles into
         input_queue = Queue()
+
 
         # Get the process for the input method and start it
         input_proc = self.joint_input.launch(input_queue)
         input_proc.start()
+
+        # Set up the device queue to push data into
+        device_queue = Queue()
+        device_proq = self.device.launch(device_queue)
+        device_proq.start()
+
+
 
         # Set the initial
         joints = {}
@@ -110,27 +88,11 @@ class ROBOT:
 
         while True:
             # Check if there's a new human joint inputs ready
+            # if not input_queue.empty():
             joints = input_queue.get()
-            if joints['NITE_JOINT_RIGHT_HAND']:
-
-                print('Kinect Left Hand:', joints['NITE_JOINT_RIGHT_HAND'])
-
-                # Shift pose coordinate in reference to desinated base of kinematics chain
-                left_hand = self.solver.translate_coordinates(joints['NITE_JOINT_RIGHT_HAND'],
-                                                 joints['NITE_JOINT_RIGHT_SHOULDER'])
-
-                print('Left Hand w/ respect to shoulder:', left_hand)
-                print('---------------')
-                                                
-                # Invert the y value (when translating coordinate systems, the origin is moved above the point, needing to negate it)                                                      
-                left_hand[1] = -left_hand[1]        
-                                                 
-                # Convert from kinect's left hand coordinate to ikpy's right hand system                                
-                left_hand = self.solver.rotate_x(left_hand, -math.pi/2)
-                # left_hand = np.append(left_hand, joints['NITE_JOINT_RIGHT_HAND'][2])
-                joint_angles = self.solver.solve(left_hand)
+            if joints['Lwri']:
+                joint_angles = self.solver.solve(joints['Lwri']['pc'])
 
                 joint = ArmJoints(joint_angles[0], joint_angles[1], 0.0)
 
-            # Pump out the angles to the visualizer
-            self.visualizer.next_frame(joint_angles)
+                device_queue.push(joint)
