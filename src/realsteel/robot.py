@@ -3,6 +3,7 @@ from multiprocessing import Pool, Process, Queue
 import time, math
 from enum import Enum
 import numpy as np
+import atexit
 from ikpy.chain import Chain
 from ikpy.link import OriginLink, URDFLink
 
@@ -43,6 +44,7 @@ class ROBOT:
 
         # [2] Set up the camera/kinect input device
         self.joint_input = HYBRID()
+        self.input_queue = None
 
         # [3] Set up the kinematic solver 
         self.solver = KSOLVER()
@@ -55,14 +57,13 @@ class ROBOT:
             self.device = ROBOT_DEVICE()
         else:
             self.device = FAKE_DEVICE()
+        self.device_queue = None
 
         # [6] Set up the visualizer
         if self.visualization_mode == "dev":
             self.visualizer = ROBOT_VIS(directory='robot/')
-
         elif self.visualization_mode == "demo":
             self.visualizer = DEMO_VIS()
-
         else:
             self.visualizer = FAKE_VIS()
 
@@ -71,6 +72,7 @@ class ROBOT:
             OriginLink(),
             URDFLink(
                 name="shoulder_left",
+                bounds=(1.745, 5.76),
                 translation_vector=[0, 0, 0],
                 orientation=[-0.752186, -0.309384, -0.752186],
                 rotation=[0.707107, 0, 0.707107],
@@ -101,6 +103,7 @@ class ROBOT:
             OriginLink(),
             URDFLink(
                 name="shoulder_right",
+                bounds=(1.745, 5.76),
                 translation_vector=[0, 0, 0],
                 orientation=[-0.706606, 0.270333, 0.706606],
                 rotation=[0.707107, 0, -0.707107],
@@ -130,63 +133,88 @@ class ROBOT:
         self.left_chain.first_active_joint = 0
         self.right_chain.first_active_joint = 0
 
+        atexit.register(self.cleanup)
+
 
     def start(self):
         self.main_loop()
 
+    def cleanup(self):
+        if self.input_queue is not None:
+            while not self.input_queue.empty():
+                input_queue.get()
+
+        if self.device_queue is not None:
+            while not self.device_queue.empty():
+                device_queue.get()
+
+    def reset(self):
+        """Resets robot to zero position"""
+        r_shoulder = [-.33, .2, 1.52]
+        r_hand = [-.37, .22, 1.36]
+        l_shoulder = [.01, .23, 1.46]
+        l_hand = [-.02, .23, 1.27]
+
+        left_hand = self.get_target(l_hand, l_shoulder)
+        right_hand = self.get_target(r_hand, r_shoulder)
+
+        left_angles = self.solver.solve(self.left_chain, left_hand)
+        right_angles = self.solver.solve(self.right_chain, right_hand)
+
+        return left_angles[1:4], right_angles[1:4]
+    
+    def get_target(self, hand, shoulder):
+        """Performs a series of coordinate transforms to get target in the right frame"""
+        # Shift pose coordinate in reference to desinated base of kinematics chain
+        target = self.solver.translate_coordinates(hand, shoulder)
+            
+        # Invert the z value                                                     
+        target[2] = -target[2]        
+
+        # Convert from kinect's coordinate system orientaion to ikpy's orientation                                
+        target = self.solver.rotate_x(target, math.pi/2)
+
+        return target
+
     def main_loop(self):
         # Set up a shared queue to put human angles into
-        input_queue = Queue(maxsize=3)
+        self.input_queue = Queue(maxsize=3)
 
         # Get the process for the input method and start it
-        input_proc = self.joint_input.launch(input_queue)
+        input_proc = self.joint_input.launch(self.input_queue)
         input_proc.start()
 
         if self.visualization_mode == "demo":
             # Set up the device queue to push data into
-            device_queue = Queue()
-            device_proq = self.device.launch(device_queue)
+            self.device_queue = Queue(maxsize=3)
+            device_proq = self.device.launch(self.device_queue)
             device_proq.start()
 
         # Set the initial
         joints = {}
-        left_prev = np.asarray([])
-        left_angles = np.asarray([0, 0, 0, 0, 0])
-        right_prev = np.asarray([])
-        right_angles = np.asarray([0, 0, 0, 0, 0])
+        left_prev = []
+        left_angles = [0, 0, 0, 0, 0]
+        right_prev = []
+        right_angles = [0, 0, 0, 0, 0]
 
         while True:
             # Check if there's a new human joint inputs ready
-            if not input_queue.empty():
-                joints = input_queue.get()
+            if not self.input_queue.empty():
+                joints = self.input_queue.get()
 
                 # Left Hand Kinematics
                 if joints['NITE_JOINT_RIGHT_HAND']:
-                    # Shift pose coordinate in reference to desinated base of kinematics chain
-                    left_hand = self.solver.translate_coordinates(joints['NITE_JOINT_RIGHT_HAND'],
+                    left_hand = self.get_target(joints['NITE_JOINT_RIGHT_HAND'],
                                                     joints['NITE_JOINT_RIGHT_SHOULDER'])
-                        
-                    # Invert the z value                                                     
-                    left_hand[2] = -left_hand[2]        
-
-                    # Convert from kinect's coordinate system orientaion to ikpy's orientation                                
-                    left_hand = self.solver.rotate_x(left_hand, math.pi/2)
 
                     left_prev = left_angles
                     left_angles = self.solver.solve(self.left_chain, left_hand, left_prev, DEBUG=False)
 
                 # Right Hand Kinematics
                 if joints['NITE_JOINT_LEFT_HAND']:
-                    # Shift pose coordinate in reference to desinated base of kinematics chain
-                    right_hand = self.solver.translate_coordinates(joints['NITE_JOINT_LEFT_HAND'],
+                    right_hand = self.get_target(joints['NITE_JOINT_LEFT_HAND'],
                                                     joints['NITE_JOINT_LEFT_SHOULDER'])
-                        
-                    # Invert the z value                                                     
-                    right_hand[2] = -right_hand[2]        
 
-                    # Convert from kinect's coordinate system orientaion to ikpy's orientation                                
-                    right_hand = self.solver.rotate_x(right_hand, math.pi/2)
-                    
                     right_prev = right_angles
                     right_angles = self.solver.solve(self.right_chain, right_hand, right_prev)
 
@@ -199,5 +227,8 @@ class ROBOT:
                 try:
                     # Pump out the angles to the visualizer
                     self.visualizer.next_frame(left_angles[1:4], right_angles[1:4])
+                    # self.visualizer.next_frame([0,0,0], [0,0,0])
+                    # l, r = self.reset()
+                    # self.visualizer.next_frame(l, r)
                 except:
                     break

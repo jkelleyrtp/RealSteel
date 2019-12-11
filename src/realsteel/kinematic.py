@@ -30,7 +30,7 @@ class KSOLVER:
         return t_matrix @ p
 
 
-    def solve(self, chain, target, prev_angles, DEBUG=False):
+    def solve(self, chain, target, prev_angles=[0, 0, 0, 0, 0], DEBUG=False):
         """Performs inverse kinematics and returns joint angles in rads"""
         # Setup target vector with target position at wrist
         target_vector = np.array([target[0], target[1], target[2]])
@@ -89,5 +89,5 @@ class ArmJoints():
         self.r_distal = right[2]
 
     def serialize(self):
-        return bytes('#{},{},{},{},{},{},{}!'.format(self.l_shoulder, self.l_proximal, self.l_distal, 
-                     self.r_shoulder, self.r_proximal, self.r_distal), encoding="ascii")
+        return bytes('#{},{},{},{},{},{},{}!'.format(round(self.l_shoulder, 3), round(self.l_proximal, 3), round(self.l_distal, 3), 
+                     round(self.r_shoulder, 3), round(self.r_proximal, 3), round(self.r_distal, 3)), encoding="ascii")
