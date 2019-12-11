@@ -1,4 +1,5 @@
 import numpy as np
+import math
 import matplotlib.pyplot as plt
 from ikpy.chain import Chain
 from ikpy.link import OriginLink, URDFLink
@@ -14,7 +15,7 @@ class KSOLVER:
             OriginLink(),
             URDFLink(
             name="shoulder_left",
-            translation_vector=[0.13182, -2.77556e-17, 0.303536],
+            translation_vector=[0, 0, 0],
             orientation=[-0.752186, -0.309384, -0.752186],
             rotation=[0.707107, 0, 0.707107],
             ),
@@ -32,6 +33,23 @@ class KSOLVER:
             )
         ])
 
+    def translate_coordinates(self, position_global, new_origin):
+        """Translates a point in the global coordinate system to one relative to a new origin"""
+        position_global = np.array([position_global[0], position_global[1], position_global[2], 1])
+        t_matrix = np.array([[1, 0 , 0, -new_origin[0]], 
+                            [0, 1 , 0, -new_origin[1]], 
+                            [0, 0 ,1, -new_origin[2]],
+                            [0, 0, 0, 1]])
+        return (t_matrix @ position_global)[0:3]
+
+    def rotate_x(self, p, angle):
+        """Rotates a 3D point around the x axis"""
+        t_matrix = np.array([[1, 0 , 0], 
+                            [0, math.cos(angle) , -math.sin(angle)], 
+                            [0, math.sin(angle) , math.cos(angle)]])
+        return t_matrix @ p
+
+
     def solve(self, wrist_postion):
         """Performs inverse kinematics and returns joint angles in rads
         
@@ -39,7 +57,6 @@ class KSOLVER:
         For the future, should use additional target vectors and match the elbow
 
         """
-        # TODO: Fix coordinate system transform for extra degree of freedom rotation
         # Setup target vector with target position at wrist
         target_vector = np.array([wrist_postion[0], wrist_postion[1], wrist_postion[2]])
         target_frame = np.eye(4) 
@@ -50,9 +67,7 @@ class KSOLVER:
         print('Computed position vector:', self.chain.forward_kinematics(self.chain.inverse_kinematics(target_frame))[:3, 3], \
             'Original position vector:', target_frame[:3, 3])
 
-        joints = self.chain.inverse_kinematics(target_frame)[1:3]
-
-        return np.array([0, joints[1]])
+        return joint_angles
 
 
 class ArmJoints():
