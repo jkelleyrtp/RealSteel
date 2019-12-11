@@ -4,10 +4,11 @@ import matplotlib.pyplot as plt
 from ikpy.chain import Chain
 from ikpy.link import OriginLink, URDFLink
 from ikpy import plot_utils
+from ikpy import inverse_kinematics
 from mpl_toolkits.mplot3d import axes3d, Axes3D
+from scipy.interpolate import LinearNDInterpolator
 
 # Solve the kinematic 
-
 class KSOLVER:
     def __init__(self, *args, **kwargs):
         self.left_chain = Chain(name='left_arm', links=[
@@ -57,8 +58,16 @@ class KSOLVER:
                 translation_vector=[-0.193394, -0.0097, 0.166524],
                 orientation=[2.01609e-16, 0.811584, -3.32655e-15],
                 rotation=[0, -1, 0],
+            ),
+            URDFLink(
+                name="right_tip",
+                translation_vector=[0.0431288, 0.0075, -0.133191],
+                orientation=[-2.77556e-17, 5.55112e-17, -7.84095e-15],
+                rotation=[0, -1, 0],                
             )
         ])
+
+        self.left_chain.first_active_joint = 0
 
         plt.ion()
         # plt.show()
@@ -84,18 +93,20 @@ class KSOLVER:
         return t_matrix @ p
 
 
-    def solve(self, wrist_postion, DEBUG=False):
+    def solve(self, target, prev_angles, DEBUG=False):
         """Performs inverse kinematics and returns joint angles in rads"""
         # Setup target vector with target position at wrist
-        target_vector = np.array([wrist_postion[0], wrist_postion[1], wrist_postion[2]])
+        target_vector = np.array([target[0], target[1], target[2]])
         target_frame = np.eye(4) 
         target_frame[:3, 3] = target_vector
 
-        joint_angles = self.left_chain.inverse_kinematics(target_frame)[1:4]
+        # joint_angles = self.left_chain.inverse_kinematics(target_frame)
+        joint_angles = inverse_kinematics.inverse_kinematic_optimization(self.left_chain, target_frame, prev_angles, .001)
+        
         # joint_angles = self.left_chain.inverse_kinematics(target_frame)[1:3]
 
+        # print('Joint angles:', joint_angles)
         if DEBUG:
-            # print('Joint angles:', joint_angles)
             print('Computed position vector:', self.left_chain.forward_kinematics(self.left_chain.inverse_kinematics(target_frame))[:3, 3], \
                 'Original position vector:', target_frame[:3, 3])
             
@@ -131,6 +142,10 @@ class KSOLVER:
         if show:
             plt.draw()
             self.fig.canvas.flush_events()
+
+    def lerp(self, prev, current):
+        """Linear interpolation between previous joint and current joint angles"""
+        return LinearNDInterpolator(prev, current)
 
 class ArmJoints():
     def __init__(self, shoulder, proximal, distal):

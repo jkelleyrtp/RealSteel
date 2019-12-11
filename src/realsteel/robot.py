@@ -98,7 +98,7 @@ class ROBOT:
         #         device_queue.push(joint)
 
         # Set up a shared queue to put human angles into
-        input_queue = Queue()
+        input_queue = Queue(maxsize=2)
 
         # Get the process for the input method and start it
         input_proc = self.joint_input.launch(input_queue)
@@ -106,7 +106,9 @@ class ROBOT:
 
         # Set the initial
         joints = {}
-        joint_angles = [1, 1]
+        prev_angles = np.asarray([])
+        joint_angles = np.asarray([0, 0, 0, 0, 0])
+        update = True
 
         while True:
             # Check if there's a new human joint inputs ready
@@ -122,9 +124,14 @@ class ROBOT:
                 # Convert from kinect's coordinate system orientaion to ikpy's orientation                                
                 left_hand = self.solver.rotate_x(left_hand, math.pi/2)
 
-                joint_angles = self.solver.solve(left_hand, DEBUG=False)
+                prev_angles = joint_angles
 
-                joint = ArmJoints(joint_angles[0], joint_angles[1], 0.0)
+                joint_angles = self.solver.solve(left_hand, prev_angles, DEBUG=False)
+
+                # if len(previous_angles):
+                #     joint_angles = self.solver.lerp(previous_angles, joint_angles)
+
+                joint = ArmJoints(joint_angles[1], joint_angles[2], 0.0)
 
             # Pump out the angles to the visualizer
-            self.visualizer.next_frame(joint_angles)
+            self.visualizer.next_frame(joint_angles[1:4])

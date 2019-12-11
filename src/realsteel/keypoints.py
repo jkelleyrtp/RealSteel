@@ -165,7 +165,7 @@ class Pose:
         self.close_capture_device()
 
 if __name__ == '__main__':
-    joints = Queue()
+    joints = Queue(maxsize=3)
     keypoints_proc = Pose().launch(joints, DEBUG=True)
     
     print('Starting pose detection process')
