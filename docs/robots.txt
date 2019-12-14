@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://www.getzola.org/sitemap.xml
+Sitemap: https://jonathan-kelley.com/FA19_POE_Final/sitemap.xml
