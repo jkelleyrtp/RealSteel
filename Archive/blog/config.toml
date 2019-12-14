@@ -1,0 +1,52 @@
+# Site settings
+baseurl = "http://jonathan-kelley.com/FA19_POE_Final/"
+languageCode = "en-us"
+title = "PoE FA19 Real Steel"
+theme = "spectre-pixel"
+
+# Enter your tracking code to enable Google Analytics
+googleAnalytics = ""
+
+[params]
+  name = "Real Steel: Real-time shadow boxing robot"
+  altName = ""
+  description = ""
+  bio = "For Olin College of Engineering's Fall 2019 Principles of Engineering class, we set out to design and build a shadow-boxing robot that mimics your every move in real time."
+  enableRSS = false
+
+  # Author information in posts
+  aboutAuthor = "I'm a Programmer."
+
+  # Integrate Javascript files or stylesheets by adding the url to the external assets or by
+  # linking local files with their path relative to the static folder, e.g. "css/styles.css"
+  customCSS = [
+    "https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"
+  ]
+  customJS  = []
+
+  # The variables below are optionally too and can be used to
+  # translate or customize each string of the theme.
+
+  # Navigation links
+	home = ""
+	subscribe = ""
+
+	# Pagination links
+	olderPosts = ""
+	newerPosts = ""
+	copyright = ""
+
+	# 404 page
+	title404 = ""
+	subtitle404 = ""
+
+# Add additional social link entries underneath
+[social]
+	email    = ""
+	facebook = ""
+	github   = ""
+	linkedin = ""
+	twitter  = ""
+
+[taxonomies]
+  tag = "tags"

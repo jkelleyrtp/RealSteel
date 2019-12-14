@@ -1,87 +1,129 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>http://jonathan-kelley.com/FA19_POE_Final/post/markdown-syntax/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://jonathan-kelley.com/FA19_POE_Final/post/rich-content/</loc>
-    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://jonathan-kelley.com/FA19_POE_Final/post/placeholder-text/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://jonathan-kelley.com/FA19_POE_Final/post/math-typesetting/</loc>
-    <lastmod>2019-03-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://jonathan-kelley.com/FA19_POE_Final/post/lines-from-center/</loc>
-    <lastmod>2019-03-04T22:15:42-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://jonathan-kelley.com/FA19_POE_Final/post/emoji-support/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://jonathan-kelley.com/FA19_POE_Final/about/</loc>
-  </url>
-  
-  <url>
-    <loc>http://jonathan-kelley.com/FA19_POE_Final/tags/css3/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jonathan-kelley.com/FA19_POE_Final/tags/go/</loc>
-    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jonathan-kelley.com/FA19_POE_Final/tags/html5/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jonathan-kelley.com/FA19_POE_Final/tags/javascript/</loc>
-    <lastmod>2019-03-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jonathan-kelley.com/FA19_POE_Final/tags/jquery/</loc>
-    <lastmod>2019-03-04T22:15:42-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jonathan-kelley.com/FA19_POE_Final/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jonathan-kelley.com/FA19_POE_Final/post/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://jonathan-kelley.com/FA19_POE_Final/tags/</loc>
-    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+        <url>
+            <loc>https://www.getzola.org/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/ece/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/ece/control-loops-and-feedback/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/ece/firmwareoverview/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/ece/sensors/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/hardware/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/hardware/arm/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/hardware/assembly/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/hardware/base/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/hardware/high-level-design/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/hardware/torso/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/overview/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/overview/brainstorming/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/overview/budget/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/overview/overview/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/overview/systems-design/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/software/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/software/human-tracking/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/software/inverse-kinematics/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/software/multithreading/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/software/pybullet/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/software/references/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/software/serial-output/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://www.getzola.org/documentation/software/systems-overview/</loc>
+            
+        </url>
+    
 </urlset>
