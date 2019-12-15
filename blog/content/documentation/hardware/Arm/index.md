@@ -28,8 +28,6 @@ We were also careful to design with failure in mind. At the major interfaces, we
 
 <center> {{ resize_image(path="documentation/hardware/Arm/Untitled 2.png", width=0, height=500, op="fit_height") }} </center>
 
-
-
 <style>
     .row {
     display: flex;
