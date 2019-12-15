@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Olin College Principles of Engineering 2019">
+        <meta name="author" content="Jonathan Kelley">
+        <title>Serial Output | Real Steel </title>
+        <link rel="stylesheet" href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;site.css"/>
+        <link rel="icon" href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;favicon.ico">
+    </head>
+    <body>
+
+        <header>
+            <nav class="">
+                <a class="header__logo white" href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel">Real Steel</a>
+                <a class="white" href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;" class="nav-link">Docs</a>
+                <a class="white" href="https://github.com/jkelleyrtp/FA19_POE_Final/" class="nav-link">GitHub</a>
+
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="🔎 Search the docs">
+
+                    <div class="search-results">
+                        <div class="search-results__items"></div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="content content--reversed">
+            
+
+<div class="documentation">
+    <aside class="documentation__sidebar">
+        <ul>
+        
+            
+            <li>
+                <span class="documentation__sidebar__title">Overview</span>
+                <ul>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;overview&#x2F;overview&#x2F;">Overview</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;overview&#x2F;brainstorming&#x2F;">Brainstorming + Inspiration</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;overview&#x2F;budget&#x2F;">Budget</a>
+                        </li>
+                    
+                </ul>
+            </li>
+        
+            
+            <li>
+                <span class="documentation__sidebar__title">Software</span>
+                <ul>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;software&#x2F;systems-overview&#x2F;">Software Overview</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;software&#x2F;human-tracking&#x2F;">Human Tracking</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;software&#x2F;inverse-kinematics&#x2F;">Inverse Kinematics</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;software&#x2F;pybulletsimulation&#x2F;">PyBullet Simulation</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;software&#x2F;multithreading&#x2F;">Multithreaded Framework</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;software&#x2F;serialoutput&#x2F;">Serial Output</a>
+                        </li>
+                    
+                </ul>
+            </li>
+        
+            
+            <li>
+                <span class="documentation__sidebar__title">Hardware</span>
+                <ul>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;hardware&#x2F;highlevel&#x2F;">High Level Design</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;hardware&#x2F;base&#x2F;">Base Design</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;hardware&#x2F;torso&#x2F;">Torso Design</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;hardware&#x2F;shoulder&#x2F;">Shoulder Design</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;hardware&#x2F;arm&#x2F;">Arm Design</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;hardware&#x2F;assembly&#x2F;">Assembly</a>
+                        </li>
+                    
+                </ul>
+            </li>
+        
+            
+            <li>
+                <span class="documentation__sidebar__title">Electrical and Firmware</span>
+                <ul>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;ece&#x2F;firmware&#x2F;">Firmware Overview</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;ece&#x2F;sensors&#x2F;">Sensors</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;documentation&#x2F;ece&#x2F;controls&#x2F;">Controls and Feedback</a>
+                        </li>
+                    
+                </ul>
+            </li>
+        
+        </ul>
+    </aside>
+    <div class="documentation__content">
+        
+    <h1>Serial Output</h1>
+    <p>To communicate with the Real Steel robots, we initialized a serial interface with the STM32 microcontroller (the robot's brain) to send joint positions and other information. We set up the serial interface in a separate thread as to not slow down the main thread responsible for moving data in between each of the system components. This let us maintain a 1 kHz control loop between the master computer and Real Steel robot without any performance impact on the rest of the software system.</p>
+<p>To communicate, we used the bson minified data format - a compressed version of csv with a fixed schema based on packet length. We also developed a custom interpreter for the STM32 as there were no obvious choices that fit on an embedded system to interpret the serial data. The final format for commands between the computer and robot followed as such:</p>
+<pre style="background-color:#383838;">
+<span style="color:#e6e1dc;">#[derive(debug, fmt)]
+</span><span style="font-style:italic;color:#6e9cbe;">enum </span><span style="color:#e6e1dc;">MessageTypes {
+	</span><span style="color:#da4939;">setpoint</span><span style="color:#e6e1dc;">(RobotSetpoint)
+}
+
+</span><span style="font-style:italic;color:#6e9cbe;">impl </span><span style="color:#e6e1dc;">serialize </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">MessageTypes {
+	</span><span style="font-style:italic;color:#6e9cbe;">fn </span><span style="color:#ffc66d;">serialize</span><span style="color:#e6e1dc;">() -&gt; String {
+		</span><span style="color:#cc7833;">match </span><span style="font-style:italic;color:#6e9cbe;">Self </span><span style="color:#e6e1dc;">{
+			MessageTypes::setpoint(setpoint) -&gt; {
+				</span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">format!(
+					</span><span style="color:#c1be91;">&quot;0&quot;</span><span style="color:#e6e1dc;">,
+					setpoint.left_shoulder,
+					setpoint.left_proximal,
+					setpoint.left_distal: </span><span style="font-style:italic;color:#6e9cbe;">usize</span><span style="color:#e6e1dc;">,
+					setpoint.right_shoulder,
+					setpoint.right_proximal,
+					setpoint.right_distal,
+					pitch: </span><span style="font-style:italic;color:#6e9cbe;">usize</span><span style="color:#e6e1dc;">,
+					roll: uszie
+				)
+			}
+		}
+	}
+}
+
+#[derive(debug, fmt)]
+</span><span style="font-style:italic;color:#6e9cbe;">struct </span><span style="color:#e6e1dc;">RobotSetpoint {
+	</span><span style="color:#d0d0ff;">left_shoulder</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">usize</span><span style="color:#e6e1dc;">,
+	</span><span style="color:#d0d0ff;">left_proximal</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">usize</span><span style="color:#e6e1dc;">,
+	</span><span style="color:#d0d0ff;">left_distal</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">usize</span><span style="color:#e6e1dc;">,
+	</span><span style="color:#d0d0ff;">right_shoulder</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">usize</span><span style="color:#e6e1dc;">,
+	</span><span style="color:#d0d0ff;">right_proximal</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">usize</span><span style="color:#e6e1dc;">,
+	</span><span style="color:#d0d0ff;">right_distal</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">usize</span><span style="color:#e6e1dc;">,
+	</span><span style="color:#d0d0ff;">pitch</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">usize</span><span style="color:#e6e1dc;">,
+	</span><span style="color:#d0d0ff;">roll</span><span style="color:#e6e1dc;">: uszie
+}
+</span></pre>
+<p>With this format, we could easily serialize and deserialize robot setpoints from the kinematic solver and convert them into a message that the robot could interpret. Messages could be of variable length, with the expected length determined by the leading digit for the packet. As shown above, the leading digit for the RobotSetpoint is 0 - so the stm32 can easily decode the robot position over a simple serial packet.</p>
+
+
+    </div>
+</div>
+
+        </div>
+        <footer>
+            ©2017-2019 — <a class="white" href="https://jonathan-kelley.com">Jonathan Kelley</a> and <a class="white" href="https://github.com/jkelleyrtp/FA19_POE_Final/graphs/contributors">contributors</a>
+        </footer>
+
+        <script type="text/javascript" src="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;elasticlunr.min.js"></script>
+        <script type="text/javascript" src="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;search_index.en.js"></script>
+        <script type="text/javascript" src="https:&#x2F;&#x2F;poe.olin.edu&#x2F;2019&#x2F;realsteel&#x2F;search.js"></script>
+    </body>
+</html>

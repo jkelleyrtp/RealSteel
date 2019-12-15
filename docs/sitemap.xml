@@ -2,127 +2,122 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/ece/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/ece/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/ece/control-loops-and-feedback/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/ece/controls/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/ece/firmwareoverview/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/ece/firmware/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/ece/sensors/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/ece/sensors/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/hardware/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/hardware/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/hardware/arm/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/hardware/arm/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/hardware/assembly/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/hardware/assembly/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/hardware/base/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/hardware/base/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/hardware/high-level-design/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/hardware/highlevel/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/hardware/torso/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/hardware/shoulder/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/overview/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/hardware/torso/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/overview/brainstorming/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/overview/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/overview/budget/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/overview/brainstorming/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/overview/overview/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/overview/budget/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/overview/systems-design/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/overview/overview/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/software/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/software/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/software/human-tracking/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/software/human-tracking/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/software/inverse-kinematics/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/software/inverse-kinematics/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/software/multithreading/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/software/multithreading/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/software/pybullet/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/software/pybulletsimulation/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/software/references/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/software/serialoutput/</loc>
             
         </url>
     
         <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/software/serial-output/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/software/systems-overview/</loc>
+            <loc>https://poe.olin.edu/2019/realsteel/documentation/software/systems-overview/</loc>
             
         </url>
     

@@ -1,15 +1,12 @@
 +++
-
 title = "Overview"
-
 weight = 10
-
 +++
 
 This documentation provides a set of information and resources on how to design, build, and program and shadow-boxing robot for less than $250. This was an exceptionally ambitious Principles of Engineering project and required advanced skills in CAD, CAM, math, firmware, software, and systems integration. Each component of the system -  whether it be the serial output format of the robot joints or the location of the elbow linkage - was dependent on the other components. This led to an incredibly carefully designed collection of components that pushed the limits of Olin's 3D printers, the STM32 microcontroller, and the compute power of the school laptops. 
 
 <center>
-    {{ resize_image(path="documentation/overview/Overview/reaganbot.png", width=0, height=500, op="fit_height") }}
+    {{ resize_image(path="documentation/overview/overview/reaganbot.png", width=0, height=500, op="fit_height") }}
 </center>
 
 ## Final Feature Set

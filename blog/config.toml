@@ -1,4 +1,5 @@
-base_url = "https://jonathan-kelley.com/FA19_POE_Final/"
+# base_url = "https://jonathan-kelley.com/FA19_POE_Final/"
+base_url = "https://poe.olin.edu/2019/realsteel"
 title = "Real Steel"
 description = "Olin College Principles of Engineering 2019"
 

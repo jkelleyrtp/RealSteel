@@ -3,10 +3,13 @@ title = "Inverse Kinematics"
 weight = 30
 +++
 
+## Inverse Kinematics
+
 Inverse Kinematics is needed to map human movement into robot movement. This is because, calculating joint angles using human extracted joints doesn't translate to robot joint angles. We have different joints than the robot and at different positions and lengths. Instead, using an inverse kinematics solver an articulated body can be programmed to reach a certain target position with its end effector.
 
 <center>
-<img src="https://media1.giphy.com/media/HLyej9afegzcc/giphy.gif">
+
+![https://media1.giphy.com/media/HLyej9afegzcc/giphy.gif](https://media1.giphy.com/media/HLyej9afegzcc/giphy.gif)
 </center>
 
 In RealSteel's robots, we have the following revolute joints in an arm:
@@ -16,9 +19,8 @@ In RealSteel's robots, we have the following revolute joints in an arm:
 3. Distal
 
 <center>
-    {{ resize_image(path="documentation/software/Inverse_Kinematics/untitled.png", width=0, height=500, op="fit_height") }}
+    {{ resize_image(path="documentation/software/Inverse_Kinematics/Untitled.png", width=0, height=500, op="fit_height") }}
 </center>
-
 
 
 ### How Does It Work?
@@ -29,7 +31,6 @@ Given a target position, how can we position the articulated body and all it's j
 2. Approximating solutions
 
 We use ikpy, an inverse kinematics library, that can quickly approximate the solution with an iterative optimizer with regularization for smoothing.
-
 
 <center>
     {{ resize_image(path="documentation/software/Inverse_Kinematics/Untitled 1.png", width=0, height=500, op="fit_height") }}
@@ -46,7 +47,6 @@ The solution is to transform the target joint's (the hand joint) position from t
 <center>
     {{ resize_image(path="documentation/software/Inverse_Kinematics/Untitled 2.png", width=0, height=400, op="fit_height") }}
 </center>
-
 
 ### The Process
 
