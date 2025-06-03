@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Electrical and Firmware on Real Steel</title>
+    <link>/documentation/ece/</link>
+    <description>Recent content in Electrical and Firmware on Real Steel</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/documentation/ece/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Firmware Overview</title>
+      <link>/documentation/ece/firmware/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/ece/firmware/</guid>
+      <description>&lt;p&gt;The robot firmware had one job: take a setpoint over serial and maintain closed-loop control over the robot subsystems. We used PWM to communicate with each of the motor controllers and an external power supply to power everything, so the firmware simply needed to output a signal for each motor.&lt;/p&gt;&#xA;&lt;p&gt;The setpoint came in over serial and was decoded by a custom bson interpreter written in C++. We used the STM32 chip on the Nucleo F446ZE development board as the microcontroller, and reused PID control from the last PoE lab for closed-loop control. As our port and compute capacity was limited, the predictive control was all implemented on the host software.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sensors</title>
+      <link>/documentation/ece/sensors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/ece/sensors/</guid>
+      <description>&lt;p&gt;We designed a handful of custom sensor to make the feedback collection easier. One important sensor we designed was a simple quadrature encoder board with a dial knob. This allowed us to integrate the gears onto the encoders with ease, and each board was exceptionally cheap at only $2 per.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;As 8 quadrature encoders is simply too much information for the STM32 to handle at once, we also developed a simple quadrature interpreter board after we had designed the quadrature encoders. This counted the number of steps the quadrature encoder had performed and stored them so the firmware wouldn&amp;rsquo;t have to keep track manually. These boards were powered by a simple STM8 and output their data over I2C. This gave us an incredible performance boost and allowed us to keep closed-loop control of the robot arms and hip system without the controller breaking a sweat.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Controls and Feedback</title>
+      <link>/documentation/ece/controls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/ece/controls/</guid>
+      <description>&lt;h2 id=&#34;motor-control&#34;&gt;Motor control:&lt;/h2&gt;&#xA;&lt;p&gt;A simple PID controller was used for motor control. However, we were able to run it at 1kHz due to the floating point accelerator on the STM32F446, allowing for extremely high gain feedback.&lt;/p&gt;&#xA;&lt;h2 id=&#34;motor-controller-boards&#34;&gt;Motor controller boards:&lt;/h2&gt;&#xA;&lt;p&gt;We decided to be thrifty and copied 1:1 Adafruit&amp;rsquo;s DRV8871 motor controller boards, saving us a large amount of money compared to what we&amp;rsquo;d have to spend on 12 genuine ones.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+  </channel>
+</rss>

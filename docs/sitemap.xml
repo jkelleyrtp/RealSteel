@@ -1,124 +1,57 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/ece/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/ece/controls/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/ece/firmware/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/ece/sensors/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/hardware/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/hardware/arm/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/hardware/assembly/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/hardware/base/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/hardware/highlevel/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/hardware/shoulder/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/hardware/torso/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/overview/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/overview/brainstorming/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/overview/budget/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/overview/overview/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/software/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/software/human-tracking/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/software/inverse-kinematics/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/software/multithreading/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/software/pybulletsimulation/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/software/serialoutput/</loc>
-            
-        </url>
-    
-        <url>
-            <loc>https://jonathan-kelley.com/FA19_POE_Final/documentation/software/systems-overview/</loc>
-            
-        </url>
-    
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>/documentation/overview/</loc>
+  </url><url>
+    <loc>/documentation/software/</loc>
+  </url><url>
+    <loc>/documentation/hardware/</loc>
+  </url><url>
+    <loc>/documentation/ece/</loc>
+  </url><url>
+    <loc>/documentation/ece/firmware/</loc>
+  </url><url>
+    <loc>/documentation/hardware/highlevel/</loc>
+  </url><url>
+    <loc>/documentation/overview/overview/</loc>
+  </url><url>
+    <loc>/documentation/software/systems_overview/</loc>
+  </url><url>
+    <loc>/documentation/hardware/base/</loc>
+  </url><url>
+    <loc>/documentation/overview/brainstorming/</loc>
+  </url><url>
+    <loc>/documentation/software/human_tracking/</loc>
+  </url><url>
+    <loc>/documentation/ece/sensors/</loc>
+  </url><url>
+    <loc>/documentation/ece/controls/</loc>
+  </url><url>
+    <loc>/documentation/software/inverse_kinematics/</loc>
+  </url><url>
+    <loc>/documentation/hardware/torso/</loc>
+  </url><url>
+    <loc>/documentation/hardware/shoulder/</loc>
+  </url><url>
+    <loc>/documentation/hardware/arm/</loc>
+  </url><url>
+    <loc>/documentation/overview/budget/</loc>
+  </url><url>
+    <loc>/documentation/software/pybulletsimulation/</loc>
+  </url><url>
+    <loc>/documentation/hardware/assembly/</loc>
+  </url><url>
+    <loc>/documentation/software/multithreading/</loc>
+  </url><url>
+    <loc>/documentation/software/serialoutput/</loc>
+  </url><url>
+    <loc>/documentation/</loc>
+  </url><url>
+    <loc>/categories/</loc>
+  </url><url>
+    <loc>/</loc>
+  </url><url>
+    <loc>/tags/</loc>
+  </url>
 </urlset>

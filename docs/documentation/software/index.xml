@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software on Real Steel</title>
+    <link>/documentation/software/</link>
+    <description>Recent content in Software on Real Steel</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/documentation/software/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Overview</title>
+      <link>/documentation/software/systems_overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/software/systems_overview/</guid>
+      <description>&lt;p&gt;The software powering Real Steel is fairly complex, but we chose a handful of architectural patterns and libraries to simplify the development process. Our language of choice was Python and we relied heavily on &lt;code&gt;OpenNI&lt;/code&gt; for kinect-related libraries, Python&amp;rsquo;s &lt;code&gt;Multiprocessing&lt;/code&gt; library for concurrency, &lt;code&gt;ikpy&lt;/code&gt; for forward kinematic solving, &lt;code&gt;pybullet&lt;/code&gt; for simulation of the robot, and &lt;code&gt;PySerial&lt;/code&gt; to get the joint angle to the robot.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;All of these components were given their own &lt;code&gt;class&lt;/code&gt; in the Python code, and inherited certain functionality so that we could easily disable and enable different parts of the code with a few flags. For instance, the python code that loads in all the modules is fairly simple, despite the entire codebase being several thousand lines. We chose the pipeline architecture and separated each of the components into their own submodules to be more easily unit-testable. The entire system can run with &amp;ldquo;fake&amp;rdquo; components which satisfy the software requirements and even create fake data so we can do integration tests with entire chunks of the pipeline missing. This is a solid, industry-practiced software engineering tactic that allowed us to iterate faster and modularize our code.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Human Tracking</title>
+      <link>/documentation/software/human_tracking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/software/human_tracking/</guid>
+      <description>&lt;h2 id=&#34;human-tracking&#34;&gt;Human Tracking&lt;/h2&gt;&#xA;&lt;p&gt;We use the Kinect v1 camera to perform human skeleton tracking using its IR camera. We interface with the Kinect using the OpenNI2 library for core Kinect features and NiTE2 for skeleton tracking purposes. To support the Kinect v1 camera with these two libraries, the OpenNI2-FreenectDriver bridge must also be installed. These libraries allow us to develop in non-windows platforms using opensource software.&lt;/p&gt;&#xA;&lt;h3 id=&#34;dependency-installation&#34;&gt;Dependency Installation&lt;/h3&gt;&#xA;&lt;p&gt;There are difficulties in getting these dependencies installed as the OpenNI and NiTE project was discontinued when Apple bought PrimeSense. Instead, these packages are now hosted and can be downloaded using the following guide:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Inverse Kinematics</title>
+      <link>/documentation/software/inverse_kinematics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/software/inverse_kinematics/</guid>
+      <description>&lt;h2 id=&#34;inverse-kinematics&#34;&gt;Inverse Kinematics&lt;/h2&gt;&#xA;&lt;p&gt;Inverse Kinematics is needed to map human movement into robot movement. This is because, calculating joint angles using human extracted joints doesn&amp;rsquo;t translate to robot joint angles. We have different joints than the robot and at different positions and lengths. Instead, using an inverse kinematics solver an articulated body can be programmed to reach a certain target position with its end effector.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://media1.giphy.com/media/HLyej9afegzcc/giphy.gif&#34; alt=&#34;https://media1.giphy.com/media/HLyej9afegzcc/giphy.gif&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PyBullet Simulation</title>
+      <link>/documentation/software/pybulletsimulation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/software/pybulletsimulation/</guid>
+      <description>&lt;h2 id=&#34;pybullet-simulation&#34;&gt;PyBullet Simulation&lt;/h2&gt;&#xA;&lt;p&gt;Before we send the joint coordinates over serial to the actual robot, we want to ensure that our methodology and solutions are correct. Therefore, we use PyBullet, a physics engine, to simulate our robot movements.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Loading in our URDF file for the robot, we can pump in the joint angles and see how a virtual replica of our robot would behave under proper physics.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Multithreaded Framework</title>
+      <link>/documentation/software/multithreading/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/software/multithreading/</guid>
+      <description>&lt;h2 id=&#34;multithreaded-framework&#34;&gt;Multithreaded Framework&lt;/h2&gt;&#xA;&lt;p&gt;In order to perform the skeleton tracking, joint solving, visualizations, and communication all together  simultaneously, we set up a multithreaded framework centered around python&amp;rsquo;s multiprocessing Queues. In our framework, we use two queues: an input queue and a device/output queue.&lt;/p&gt;&#xA;&lt;p&gt;The input queue gets Kinect joint information pushed into it at every frame. The other systems, inverse kinematics and visualizations, pop joint information off of this queue as long as it&amp;rsquo;s not empty for processing.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Serial Output</title>
+      <link>/documentation/software/serialoutput/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/software/serialoutput/</guid>
+      <description>&lt;p&gt;To communicate with the Real Steel robots, we initialized a serial interface with the STM32 microcontroller (the robot&amp;rsquo;s brain) to send joint positions and other information. We set up the serial interface in a separate thread as to not slow down the main thread responsible for moving data in between each of the system components. This let us maintain a 1 kHz control loop between the master computer and Real Steel robot without any performance impact on the rest of the software system.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

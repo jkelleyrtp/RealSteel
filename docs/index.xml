@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Real Steel</title>
+    <link>/</link>
+    <description>Recent content on Real Steel</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Firmware Overview</title>
+      <link>/documentation/ece/firmware/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/ece/firmware/</guid>
+      <description>&lt;p&gt;The robot firmware had one job: take a setpoint over serial and maintain closed-loop control over the robot subsystems. We used PWM to communicate with each of the motor controllers and an external power supply to power everything, so the firmware simply needed to output a signal for each motor.&lt;/p&gt;&#xA;&lt;p&gt;The setpoint came in over serial and was decoded by a custom bson interpreter written in C++. We used the STM32 chip on the Nucleo F446ZE development board as the microcontroller, and reused PID control from the last PoE lab for closed-loop control. As our port and compute capacity was limited, the predictive control was all implemented on the host software.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>High Level Design</title>
+      <link>/documentation/hardware/highlevel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/hardware/highlevel/</guid>
+      <description>&lt;p&gt;We faced a significant challenge in integrating the mechanical and electrical aspects of the project; each additional component added more complexity and points of failure. To mitigate the potential non-obvious potholes, we decided to start designing the system from a high-level first before diving into the details.&lt;/p&gt;&#xA;&lt;p&gt;Our mechanical system had a handful of requirements:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The ability to &amp;ldquo;throw a punch&amp;rdquo;&lt;/li&gt;&#xA;&lt;li&gt;The ability to &amp;ldquo;bob and weave&amp;rdquo;&lt;/li&gt;&#xA;&lt;li&gt;The ability to &amp;ldquo;block a punch&amp;rdquo;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This ultimately manifested itself into a robot with:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Overview</title>
+      <link>/documentation/overview/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/overview/overview/</guid>
+      <description>&lt;p&gt;This documentation provides a set of information and resources on how to design, build, and program and shadow-boxing robot for less than $250. This was an exceptionally ambitious Principles of Engineering project and required advanced skills in CAD, CAM, math, firmware, software, and systems integration. Each component of the system -  whether it be the serial output format of the robot joints or the location of the elbow linkage - was dependent on the other components. This led to an incredibly carefully designed collection of components that pushed the limits of Olin&amp;rsquo;s 3D printers, the STM32 microcontroller, and the compute power of the school laptops.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Software Overview</title>
+      <link>/documentation/software/systems_overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/software/systems_overview/</guid>
+      <description>&lt;p&gt;The software powering Real Steel is fairly complex, but we chose a handful of architectural patterns and libraries to simplify the development process. Our language of choice was Python and we relied heavily on &lt;code&gt;OpenNI&lt;/code&gt; for kinect-related libraries, Python&amp;rsquo;s &lt;code&gt;Multiprocessing&lt;/code&gt; library for concurrency, &lt;code&gt;ikpy&lt;/code&gt; for forward kinematic solving, &lt;code&gt;pybullet&lt;/code&gt; for simulation of the robot, and &lt;code&gt;PySerial&lt;/code&gt; to get the joint angle to the robot.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;All of these components were given their own &lt;code&gt;class&lt;/code&gt; in the Python code, and inherited certain functionality so that we could easily disable and enable different parts of the code with a few flags. For instance, the python code that loads in all the modules is fairly simple, despite the entire codebase being several thousand lines. We chose the pipeline architecture and separated each of the components into their own submodules to be more easily unit-testable. The entire system can run with &amp;ldquo;fake&amp;rdquo; components which satisfy the software requirements and even create fake data so we can do integration tests with entire chunks of the pipeline missing. This is a solid, industry-practiced software engineering tactic that allowed us to iterate faster and modularize our code.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Base Design</title>
+      <link>/documentation/hardware/base/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/hardware/base/</guid>
+      <description>&lt;p&gt;The base of the robot underwent significant development. Early revisions were severely underspecced and not strong enough to hold the weight of the entire bot.&lt;/p&gt;&#xA;&lt;p&gt;The final design included 2 degrees of freedom - one for side-to-side movements and one for forward-to-backward movements - essentially pitch and roll. The dual fourbar design allowed the robot to move in both directions at once with design inspiration from joysticks. We used potentiometers to get feedback from the fourbars and a interesting method of embedded shaft to strength the prints.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Brainstorming &#43; Inspiration</title>
+      <link>/documentation/overview/brainstorming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/overview/brainstorming/</guid>
+      <description>&lt;p&gt;The idea to create a shadow boxing robot was nearly instant on the first team brainstorming night. Our  learning goals imposed an intense set of requirements on the project:&lt;/p&gt;&#xA;&lt;p&gt;Machine Learning - Use AI/ML to provide a powerful HCI experience&lt;/p&gt;&#xA;&lt;p&gt;Mechanical Iteration - Fabricate several iterations of a hardware-focused project&lt;/p&gt;&#xA;&lt;p&gt;Kinematics - Do some complicated parallel math to build concurrency skills&lt;/p&gt;&#xA;&lt;p&gt;Firmware - Use higher-end embedded architectures ARM/STM32&lt;/p&gt;&#xA;&lt;p&gt;Closed-loop control - Implement a predictive control algorithm&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Human Tracking</title>
+      <link>/documentation/software/human_tracking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/software/human_tracking/</guid>
+      <description>&lt;h2 id=&#34;human-tracking&#34;&gt;Human Tracking&lt;/h2&gt;&#xA;&lt;p&gt;We use the Kinect v1 camera to perform human skeleton tracking using its IR camera. We interface with the Kinect using the OpenNI2 library for core Kinect features and NiTE2 for skeleton tracking purposes. To support the Kinect v1 camera with these two libraries, the OpenNI2-FreenectDriver bridge must also be installed. These libraries allow us to develop in non-windows platforms using opensource software.&lt;/p&gt;&#xA;&lt;h3 id=&#34;dependency-installation&#34;&gt;Dependency Installation&lt;/h3&gt;&#xA;&lt;p&gt;There are difficulties in getting these dependencies installed as the OpenNI and NiTE project was discontinued when Apple bought PrimeSense. Instead, these packages are now hosted and can be downloaded using the following guide:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sensors</title>
+      <link>/documentation/ece/sensors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/ece/sensors/</guid>
+      <description>&lt;p&gt;We designed a handful of custom sensor to make the feedback collection easier. One important sensor we designed was a simple quadrature encoder board with a dial knob. This allowed us to integrate the gears onto the encoders with ease, and each board was exceptionally cheap at only $2 per.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;As 8 quadrature encoders is simply too much information for the STM32 to handle at once, we also developed a simple quadrature interpreter board after we had designed the quadrature encoders. This counted the number of steps the quadrature encoder had performed and stored them so the firmware wouldn&amp;rsquo;t have to keep track manually. These boards were powered by a simple STM8 and output their data over I2C. This gave us an incredible performance boost and allowed us to keep closed-loop control of the robot arms and hip system without the controller breaking a sweat.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Controls and Feedback</title>
+      <link>/documentation/ece/controls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/ece/controls/</guid>
+      <description>&lt;h2 id=&#34;motor-control&#34;&gt;Motor control:&lt;/h2&gt;&#xA;&lt;p&gt;A simple PID controller was used for motor control. However, we were able to run it at 1kHz due to the floating point accelerator on the STM32F446, allowing for extremely high gain feedback.&lt;/p&gt;&#xA;&lt;h2 id=&#34;motor-controller-boards&#34;&gt;Motor controller boards:&lt;/h2&gt;&#xA;&lt;p&gt;We decided to be thrifty and copied 1:1 Adafruit&amp;rsquo;s DRV8871 motor controller boards, saving us a large amount of money compared to what we&amp;rsquo;d have to spend on 12 genuine ones.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    <item>
+      <title>Inverse Kinematics</title>
+      <link>/documentation/software/inverse_kinematics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/software/inverse_kinematics/</guid>
+      <description>&lt;h2 id=&#34;inverse-kinematics&#34;&gt;Inverse Kinematics&lt;/h2&gt;&#xA;&lt;p&gt;Inverse Kinematics is needed to map human movement into robot movement. This is because, calculating joint angles using human extracted joints doesn&amp;rsquo;t translate to robot joint angles. We have different joints than the robot and at different positions and lengths. Instead, using an inverse kinematics solver an articulated body can be programmed to reach a certain target position with its end effector.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://media1.giphy.com/media/HLyej9afegzcc/giphy.gif&#34; alt=&#34;https://media1.giphy.com/media/HLyej9afegzcc/giphy.gif&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Torso Design</title>
+      <link>/documentation/hardware/torso/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/hardware/torso/</guid>
+      <description>&lt;p&gt;The torso of the Real Steel robots was one of the more complicated parts of the robot to design. Not only did it have to integrate with the robot base, but it had to support both arms, the head, and the accompanying sensors to maintain accurate position control over the shoulder joints. The final design of the robot body came together in 5 separate pieces: the torso, the shoulder supports, the stand balance plate, and the head.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Shoulder Design</title>
+      <link>/documentation/hardware/shoulder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/hardware/shoulder/</guid>
+      <description>&lt;p&gt;The shoulders of the Real Steel robots were fun to design and pulled in some interesting 3D print techniques. We created an adapter system that used the profile of the motor shafts to fasten the hubs onto the primary body parts. This let us gracefully handle failures and more easily replace broken components. We also designed and 3D-printed our own gears which were used in conjunction with the custom encoder boards to get position feedback of the joints back to the STM32 controller.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Arm Design</title>
+      <link>/documentation/hardware/arm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/hardware/arm/</guid>
+      <description>&lt;p&gt;The Real Steel robot arms were some of the most fun pieces to design of the whole system. We wanted to keep the mass of the arm as close to the axis of rotation as possible - the more balanced the arms were, the faster the motors could turn them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;top-level-design&#34;&gt;Top-Level design&lt;/h2&gt;&#xA;&lt;p&gt;To simplify the design of the complicated sensor and motor interfaces, we created a single top-level sketch of the entire robot system and derived sketches for each of the subsystems. This approach to design is a common parametric technique that allows upstream design changes without breaking everything downstream. We were able to iterate on the width of the robot&amp;rsquo;s shoulders and shoulder angles while the final pieces remained relatively the same. The benefits of this approach came to fruition when we modified the arm dimensions and mass in the final sprint by changing just a few numbers and reprinting all the pieces.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Budget</title>
+      <link>/documentation/overview/budget/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/overview/budget/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    <item>
+      <title>PyBullet Simulation</title>
+      <link>/documentation/software/pybulletsimulation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/software/pybulletsimulation/</guid>
+      <description>&lt;h2 id=&#34;pybullet-simulation&#34;&gt;PyBullet Simulation&lt;/h2&gt;&#xA;&lt;p&gt;Before we send the joint coordinates over serial to the actual robot, we want to ensure that our methodology and solutions are correct. Therefore, we use PyBullet, a physics engine, to simulate our robot movements.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Loading in our URDF file for the robot, we can pump in the joint angles and see how a virtual replica of our robot would behave under proper physics.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Assembly</title>
+      <link>/documentation/hardware/assembly/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/hardware/assembly/</guid>
+      <description>&lt;p&gt;Assembly of the Real Steel robots took quite a long time due to the complexity of the subsystems and integration. We spent a considerable amount of time wiring up the sensors and motors and worked from drawings to maintain consistency. Fortunately, we made sure to include fasteners in the modeling process which sped up the process.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    <item>
+      <title>Multithreaded Framework</title>
+      <link>/documentation/software/multithreading/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/software/multithreading/</guid>
+      <description>&lt;h2 id=&#34;multithreaded-framework&#34;&gt;Multithreaded Framework&lt;/h2&gt;&#xA;&lt;p&gt;In order to perform the skeleton tracking, joint solving, visualizations, and communication all together  simultaneously, we set up a multithreaded framework centered around python&amp;rsquo;s multiprocessing Queues. In our framework, we use two queues: an input queue and a device/output queue.&lt;/p&gt;&#xA;&lt;p&gt;The input queue gets Kinect joint information pushed into it at every frame. The other systems, inverse kinematics and visualizations, pop joint information off of this queue as long as it&amp;rsquo;s not empty for processing.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Serial Output</title>
+      <link>/documentation/software/serialoutput/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/software/serialoutput/</guid>
+      <description>&lt;p&gt;To communicate with the Real Steel robots, we initialized a serial interface with the STM32 microcontroller (the robot&amp;rsquo;s brain) to send joint positions and other information. We set up the serial interface in a separate thread as to not slow down the main thread responsible for moving data in between each of the system components. This let us maintain a 1 kHz control loop between the master computer and Real Steel robot without any performance impact on the rest of the software system.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

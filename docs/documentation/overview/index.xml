@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Overview on Real Steel</title>
+    <link>/documentation/overview/</link>
+    <description>Recent content in Overview on Real Steel</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/documentation/overview/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overview</title>
+      <link>/documentation/overview/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/overview/overview/</guid>
+      <description>&lt;p&gt;This documentation provides a set of information and resources on how to design, build, and program and shadow-boxing robot for less than $250. This was an exceptionally ambitious Principles of Engineering project and required advanced skills in CAD, CAM, math, firmware, software, and systems integration. Each component of the system -  whether it be the serial output format of the robot joints or the location of the elbow linkage - was dependent on the other components. This led to an incredibly carefully designed collection of components that pushed the limits of Olin&amp;rsquo;s 3D printers, the STM32 microcontroller, and the compute power of the school laptops.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Brainstorming &#43; Inspiration</title>
+      <link>/documentation/overview/brainstorming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/overview/brainstorming/</guid>
+      <description>&lt;p&gt;The idea to create a shadow boxing robot was nearly instant on the first team brainstorming night. Our  learning goals imposed an intense set of requirements on the project:&lt;/p&gt;&#xA;&lt;p&gt;Machine Learning - Use AI/ML to provide a powerful HCI experience&lt;/p&gt;&#xA;&lt;p&gt;Mechanical Iteration - Fabricate several iterations of a hardware-focused project&lt;/p&gt;&#xA;&lt;p&gt;Kinematics - Do some complicated parallel math to build concurrency skills&lt;/p&gt;&#xA;&lt;p&gt;Firmware - Use higher-end embedded architectures ARM/STM32&lt;/p&gt;&#xA;&lt;p&gt;Closed-loop control - Implement a predictive control algorithm&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Budget</title>
+      <link>/documentation/overview/budget/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/overview/budget/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+  </channel>
+</rss>

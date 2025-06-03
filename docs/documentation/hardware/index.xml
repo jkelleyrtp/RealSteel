@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hardware on Real Steel</title>
+    <link>/documentation/hardware/</link>
+    <description>Recent content in Hardware on Real Steel</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/documentation/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>High Level Design</title>
+      <link>/documentation/hardware/highlevel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/hardware/highlevel/</guid>
+      <description>&lt;p&gt;We faced a significant challenge in integrating the mechanical and electrical aspects of the project; each additional component added more complexity and points of failure. To mitigate the potential non-obvious potholes, we decided to start designing the system from a high-level first before diving into the details.&lt;/p&gt;&#xA;&lt;p&gt;Our mechanical system had a handful of requirements:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The ability to &amp;ldquo;throw a punch&amp;rdquo;&lt;/li&gt;&#xA;&lt;li&gt;The ability to &amp;ldquo;bob and weave&amp;rdquo;&lt;/li&gt;&#xA;&lt;li&gt;The ability to &amp;ldquo;block a punch&amp;rdquo;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This ultimately manifested itself into a robot with:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Base Design</title>
+      <link>/documentation/hardware/base/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/hardware/base/</guid>
+      <description>&lt;p&gt;The base of the robot underwent significant development. Early revisions were severely underspecced and not strong enough to hold the weight of the entire bot.&lt;/p&gt;&#xA;&lt;p&gt;The final design included 2 degrees of freedom - one for side-to-side movements and one for forward-to-backward movements - essentially pitch and roll. The dual fourbar design allowed the robot to move in both directions at once with design inspiration from joysticks. We used potentiometers to get feedback from the fourbars and a interesting method of embedded shaft to strength the prints.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Torso Design</title>
+      <link>/documentation/hardware/torso/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/hardware/torso/</guid>
+      <description>&lt;p&gt;The torso of the Real Steel robots was one of the more complicated parts of the robot to design. Not only did it have to integrate with the robot base, but it had to support both arms, the head, and the accompanying sensors to maintain accurate position control over the shoulder joints. The final design of the robot body came together in 5 separate pieces: the torso, the shoulder supports, the stand balance plate, and the head.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Shoulder Design</title>
+      <link>/documentation/hardware/shoulder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/hardware/shoulder/</guid>
+      <description>&lt;p&gt;The shoulders of the Real Steel robots were fun to design and pulled in some interesting 3D print techniques. We created an adapter system that used the profile of the motor shafts to fasten the hubs onto the primary body parts. This let us gracefully handle failures and more easily replace broken components. We also designed and 3D-printed our own gears which were used in conjunction with the custom encoder boards to get position feedback of the joints back to the STM32 controller.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Arm Design</title>
+      <link>/documentation/hardware/arm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/hardware/arm/</guid>
+      <description>&lt;p&gt;The Real Steel robot arms were some of the most fun pieces to design of the whole system. We wanted to keep the mass of the arm as close to the axis of rotation as possible - the more balanced the arms were, the faster the motors could turn them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;top-level-design&#34;&gt;Top-Level design&lt;/h2&gt;&#xA;&lt;p&gt;To simplify the design of the complicated sensor and motor interfaces, we created a single top-level sketch of the entire robot system and derived sketches for each of the subsystems. This approach to design is a common parametric technique that allows upstream design changes without breaking everything downstream. We were able to iterate on the width of the robot&amp;rsquo;s shoulders and shoulder angles while the final pieces remained relatively the same. The benefits of this approach came to fruition when we modified the arm dimensions and mass in the final sprint by changing just a few numbers and reprinting all the pieces.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Assembly</title>
+      <link>/documentation/hardware/assembly/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/documentation/hardware/assembly/</guid>
+      <description>&lt;p&gt;Assembly of the Real Steel robots took quite a long time due to the complexity of the subsystems and integration. We spent a considerable amount of time wiring up the sensors and motors and worked from drawings to maintain consistency. Fortunately, we made sure to include fasteners in the modeling process which sped up the process.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+  </channel>
+</rss>
